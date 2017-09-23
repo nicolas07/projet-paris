@@ -3,6 +3,9 @@ package com.onvaou;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentTransaction;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -70,15 +73,27 @@ public class MainActivity extends AppCompatActivity
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
+        Fragment fragment = null;
 
         if (id == R.id.nav_rech_theme) {
             // Recherche des bars par themes
+            fragment = FragmentRecherche.newInstance(this);
         } else if (id == R.id.nav_listebars) {
             // Liste des bars
+            fragment = FragmentListeBars.newInstance(this);
         } else if (id == R.id.nav_ecarte_fidelite) {
             // Fidelité
+            fragment = FragmentFidelite.newInstance(this);
         } else if (id == R.id.nav_parametres) {
             //Parametres
+            fragment = FragmentParametres.newInstance(this);
+        }
+
+        //replacing the fragment
+        if (fragment != null) {
+            FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+            ft.replace(R.id.content_frame, fragment);
+            ft.commit();
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
