@@ -1,2 +1,0 @@
-# projet-paris
-Projet Paris
