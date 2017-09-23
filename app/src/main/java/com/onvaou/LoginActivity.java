@@ -32,7 +32,7 @@ public class LoginActivity extends AppCompatActivity {
         bouton_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String email = editText_motdepasse.getText().toString();
+                String email = editText_email.getText().toString();
                 String motdepasse = editText_motdepasse.getText().toString();
                 if(email != null && !email.isEmpty() && motdepasse != null && !motdepasse.isEmpty())
                 {
