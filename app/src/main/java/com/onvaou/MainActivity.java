@@ -17,7 +17,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+        implements NavigationView.OnNavigationItemSelectedListener, SendMessage {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -108,5 +108,12 @@ public class MainActivity extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    @Override
+    public void sendData(String message) {
+        String tag = "SendData Activity";
+        FragmentRecherche f = (FragmentRecherche) getSupportFragmentManager().findFragmentByTag(tag);
+        f.displayReceivedData(message);
     }
 }
