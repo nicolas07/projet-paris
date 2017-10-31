@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
 
         if (savedInstanceState == null) {
-            Fragment fragment = FragmentRecherche.newInstance(this);
+            Fragment fragment = FragmentRecherche2.newInstance(this);
             FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
             fragmentTransaction.replace(R.id.content_frame, fragment);
             fragmentTransaction.commit();
@@ -86,7 +86,7 @@ public class MainActivity extends AppCompatActivity
 
         if (id == R.id.nav_rech_theme) {
             // Recherche des bars par themes
-            fragment = FragmentRecherche.newInstance(this);
+            fragment = FragmentRecherche2.newInstance(this);
         } else if (id == R.id.nav_listebars) {
             // Liste des bars
             fragment = FragmentListeBars.newInstance(this);
