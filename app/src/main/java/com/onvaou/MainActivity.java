@@ -1,6 +1,7 @@
 package com.onvaou;
 
 import android.os.Bundle;
+import android.preference.PreferenceFragment;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
@@ -17,7 +18,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener, SendMessage {
+        implements NavigationView.OnNavigationItemSelectedListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,7 +26,7 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
 
         if (savedInstanceState == null) {
-            Fragment fragment = FragmentRecherche2.newInstance(this);
+            Fragment fragment = FragmentRecherche.newInstance(this);
             FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
             fragmentTransaction.replace(R.id.content_frame, fragment);
             fragmentTransaction.commit();
@@ -86,7 +87,7 @@ public class MainActivity extends AppCompatActivity
 
         if (id == R.id.nav_rech_theme) {
             // Recherche des bars par themes
-            fragment = FragmentRecherche2.newInstance(this);
+            fragment = FragmentRecherche.newInstance(this);
         } else if (id == R.id.nav_listebars) {
             // Liste des bars
             fragment = FragmentListeBars.newInstance(this);
@@ -96,6 +97,9 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_parametres) {
             //Parametres
             fragment = FragmentParametres.newInstance(this);
+        } else if (id == R.id.nav_favoris) {
+            //Parametres
+            fragment = FragmentListeBarsFavoris.newInstance(this);
         }
 
         //replacing the fragment
@@ -108,12 +112,5 @@ public class MainActivity extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
-    }
-
-    @Override
-    public void sendData(String message) {
-        String tag = "SendData Activity";
-        FragmentRecherche f = (FragmentRecherche) getSupportFragmentManager().findFragmentByTag(tag);
-        f.displayReceivedData(message);
     }
 }
