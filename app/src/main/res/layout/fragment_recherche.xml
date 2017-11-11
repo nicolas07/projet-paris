@@ -32,7 +32,7 @@
         <TextView
             android:id="@+id/textView_themes"
             android:layout_width="250dp"
-            android:layout_height="60dp" />
+            android:layout_height="107dp" />
 
         <ImageView
             android:id="@+id/img_PlusTheme"
@@ -144,20 +144,20 @@
             <RadioButton
                 android:id="@+id/rb_LocalisationGPS"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="40dp"
                 android:text="Autour de moi" />
 
             <RadioButton
                 android:id="@+id/rb_LocalisationCP"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
                 android:text="Adresse" />
         </RadioGroup>
 
         <EditText
             android:id="@+id/et_VilleCP"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="40dp"
             android:layout_alignBottom="@+id/rg_localisation"
             android:layout_toEndOf="@+id/rg_localisation"
             android:hint="CP, Ville" />

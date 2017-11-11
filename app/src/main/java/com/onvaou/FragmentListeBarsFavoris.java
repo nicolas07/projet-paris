@@ -34,7 +34,9 @@ public class FragmentListeBarsFavoris extends Fragment{
         ((MainActivity) getActivity()).getSupportActionBar().setTitle("Bars Favoris");
 
         lvBars = (ListView) root.findViewById(R.id.lvBars);
-        listeBars = BarHelper.getInstance(getContext()).RecupererListeBarsFavoris();
+        listeBars = SharedPreferencesHelper.getInstance(getContext()).RecupererListeBarsFavoris();
+
+        //listeBars = BarHelper.getInstance(getContext()).RecupererListeBarsFavoris(BarHelper.getInstance(getContext()).GenererListeBars());
         BarAdapter adapter = new BarAdapter(getContext(), R.layout.row_listebars,listeBars);
         lvBars.setAdapter(adapter);
 

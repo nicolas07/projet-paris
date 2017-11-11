@@ -1,35 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="horizontal"
-    android:padding="10dp" >
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="10dp" >
 
-    <ImageView
-        android:id="@+id/ivImageBar"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        tools:background="#AAA"
-        android:adjustViewBounds="true"
-        android:scaleType="fitXY"/>
+        <ImageView
+            android:id="@+id/ivImageBar"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            tools:background="#AAA"
+            android:adjustViewBounds="true"
+            android:scaleType="fitXY" />
 
-    <TextView
-        android:id="@+id/tvNomBar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textColor="@android:color/black"
-        android:layout_marginLeft="10dp"
-        android:layout_toRightOf="@+id/ivImageBar"
-        android:layout_alignTop="@+id/ivImageBar"
-        android:textStyle="bold" />
+        <TextView
+            android:id="@+id/tvNomBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/black"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@+id/ivImageBar"
+            android:layout_alignTop="@+id/ivImageBar"
+            android:textStyle="bold"
+            tools:text="Pseudo" />
 
-    <TextView android:id="@+id/tvThemeBar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textColor="@android:color/black"
-        android:layout_alignLeft="@+id/tvNomBar"
-        android:layout_below="@+id/tvNomBar" />
+        <TextView
+            android:id="@+id/tvVilleBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/black"
+            android:layout_alignLeft="@+id/tvNomBar"
+            android:layout_below="@+id/tvNomBar"
+            tools:text="Texte de mon tweet" />
 
-</LinearLayout>
+</RelativeLayout>

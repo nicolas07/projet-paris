@@ -22,6 +22,7 @@ import com.google.android.gms.maps.model.MarkerOptions;
 
 import java.text.DecimalFormat;
 import java.util.ArrayList;
+import java.util.Random;
 
 /**
  * Created by Nicolas on 04/11/2017.
@@ -32,9 +33,10 @@ public class FragmentDetail extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        ((MainActivity) getActivity()).getSupportActionBar().setTitle("Détail");
         // Inflate the layout for this fragment
-        int id = this.getArguments().getInt("id");
-        ArrayList<Bar> bars = SharedPreferencesHelper.getInstance(getContext()).RecupererListeBars();
+        final int id = this.getArguments().getInt("BarSelectionne");
+        final ArrayList<Bar> bars = SharedPreferencesHelper.getInstance(getContext()).RecupererListeBars();
         Bar b = bars.get(id);
         View view = inflater.inflate(R.layout.fragment_detail, container, false);
 
@@ -44,12 +46,14 @@ public class FragmentDetail extends Fragment {
         TextView tvPrix = (TextView) view.findViewById(R.id.tvPrix);
         TextView tvAdresse = (TextView) view.findViewById(R.id.tvAdresse);
 
+        Random r = new Random();
         DecimalFormat df = new DecimalFormat("#.00");
         tvNom.setText(b.getNom());
-        tvNote.setText( "Note = " + df.format(b.getNote()));
-        tvTheme.setText(b.getTheme().name());
+        int nbAvis = r.nextInt(50-15)+15;
+        tvNote.setText( "Note = " + df.format(b.getNote()) + "("+ nbAvis+" avis)");
+        tvTheme.setText(b.getTheme().name().replace("_"," "));
         tvPrix.setText(b.getPrix().name());
-        tvAdresse.setText(b.getNumero()+" "+ b.getRue() + "\n" + b.getCP() +"-"+b.getVille());
+        tvAdresse.setText(b.getAdresse() + "\n" + b.getCP() +" - "+b.getVille());
 
         final ImageView ivFavori = (ImageView) view.findViewById(R.id.ivFavori);
         if(b.isFavori())
@@ -61,11 +65,29 @@ public class FragmentDetail extends Fragment {
             @Override
             public void onClick(View view) {
 
+                ArrayList<Bar> barsFavoris = SharedPreferencesHelper.getInstance(getContext()).RecupererListeBarsFavoris();
+                if(barsFavoris == null){
+                    barsFavoris = new ArrayList<Bar>();
+                }
+
+                Bar b = bars.get(id);
+
                 if(ivFavori.getDrawable().getConstantState() == getResources().getDrawable(R.mipmap.favori,null).getConstantState())
                 {
+                    if(barsFavoris.contains(b)){
+                        barsFavoris.remove(b);
+                    }
+                    SharedPreferencesHelper.getInstance(getContext()).SauvegarderListeBarsFavoris(barsFavoris);
                     ivFavori.setImageResource(R.mipmap.favorinon);
                 } else {
                     ivFavori.setImageResource(R.mipmap.favori);
+                    b.setFavori(true);
+
+                    if(!barsFavoris.contains(b)){
+                        barsFavoris.add(b);
+                    }
+
+                    SharedPreferencesHelper.getInstance(getContext()).SauvegarderListeBarsFavoris(barsFavoris);
                     Toast.makeText(getContext(),"Ajouté aux Favoris", Toast.LENGTH_SHORT).show();
                 }
 
@@ -110,7 +132,8 @@ public class FragmentDetail extends Fragment {
         btNote.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(getContext(),String.valueOf(rbNote.getRating()), Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(),"Merci de votre avis", Toast.LENGTH_SHORT).show();
+                rbNote.setRating(0);
             }
         });
 

@@ -42,8 +42,7 @@ public class FragmentListeBars extends Fragment{
         ((MainActivity) getActivity()).getSupportActionBar().setTitle("Liste des bars");
 
         lvBars = (ListView) root.findViewById(R.id.lvBars);
-        listeBars = BarHelper.getInstance(getContext()).GenererListeBars();
-        SharedPreferencesHelper.getInstance(getContext()).SauvegarderListeBars(listeBars);
+        listeBars = SharedPreferencesHelper.getInstance(getContext()).RecupererListeBars();
         BarAdapter adapter = new BarAdapter(getContext(), R.layout.row_listebars,listeBars);
         lvBars.setAdapter(adapter);
 

@@ -1,5 +1,6 @@
 package com.onvaou;
 
+import android.app.FragmentManager;
 import android.os.Bundle;
 import android.preference.PreferenceFragment;
 import android.support.design.widget.FloatingActionButton;
@@ -16,14 +17,23 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     @Override
+    protected void onDestroy() {
+        super.onDestroy();
+
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        SharedPreferencesHelper.getInstance(getApplicationContext()).Clear();
 
         if (savedInstanceState == null) {
             Fragment fragment = FragmentRecherche.newInstance(this);
@@ -84,6 +94,7 @@ public class MainActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
         Fragment fragment = null;
+        FragmentTransaction ft = null;
 
         if (id == R.id.nav_rech_theme) {
             // Recherche des bars par themes
@@ -96,7 +107,8 @@ public class MainActivity extends AppCompatActivity
             fragment = FragmentFidelite.newInstance(this);
         } else if (id == R.id.nav_parametres) {
             //Parametres
-            fragment = FragmentParametres.newInstance(this);
+            SharedPreferencesHelper.getInstance(getApplicationContext()).Clear();
+            Toast.makeText(getApplicationContext(),"ShredPreferences clean OK",Toast.LENGTH_SHORT).show();
         } else if (id == R.id.nav_favoris) {
             //Parametres
             fragment = FragmentListeBarsFavoris.newInstance(this);
@@ -104,7 +116,7 @@ public class MainActivity extends AppCompatActivity
 
         //replacing the fragment
         if (fragment != null) {
-            FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+            ft = getSupportFragmentManager().beginTransaction();
             ft.replace(R.id.content_frame, fragment);
             ft.commit();
         }

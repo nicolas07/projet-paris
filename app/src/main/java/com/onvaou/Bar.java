@@ -8,8 +8,7 @@ public class Bar {
     public String Nom;
     public Theme Theme;
     public Prix Prix;
-    public String Numero;
-    public String Rue;
+    public String Adresse;
     public String Ville;
     public String CP;
     public double Latitude;
@@ -41,20 +40,12 @@ public class Bar {
         Prix = prix;
     }
 
-    public String getNumero() {
-        return Numero;
+    public String getAdresse() {
+        return Adresse;
     }
 
-    public void setNumero(String numero) {
-        Numero = numero;
-    }
-
-    public String getRue() {
-        return Rue;
-    }
-
-    public void setRue(String rue) {
-        Rue = rue;
+    public void setAdresse(String adresse) {
+        Adresse = adresse;
     }
 
     public String getVille() {
@@ -105,12 +96,11 @@ public class Bar {
         Favori = favori;
     }
 
-    public Bar(String nom, com.onvaou.Theme theme, com.onvaou.Prix prix, String numero, String rue, String ville, String CP, double latitude, double longitude, float note) {
+    public Bar(String nom, com.onvaou.Theme theme, com.onvaou.Prix prix, String adresse, String ville, String CP, double latitude, double longitude, float note) {
         Nom = nom;
         Theme = theme;
         Prix = prix;
-        Numero = numero;
-        Rue = rue;
+        Adresse = adresse;
         Ville = ville;
         this.CP = CP;
         Latitude = latitude;
@@ -118,4 +108,6 @@ public class Bar {
         Note = note;
         Favori = false;
     }
+
+
 }

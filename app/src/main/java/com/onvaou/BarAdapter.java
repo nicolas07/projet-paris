@@ -39,7 +39,7 @@ public class BarAdapter extends ArrayAdapter<Bar> {
             holder = new BarViewHolder();
             holder.image = (ImageView) row.findViewById(R.id.ivImageBar);
             holder.nom = (TextView) row.findViewById(R.id.tvNomBar);
-            holder.theme = (TextView) row.findViewById(R.id.tvThemeBar);
+            holder.ville = (TextView) row.findViewById(R.id.tvVilleBar);
 
             row.setTag(holder);
         } else {
@@ -47,15 +47,45 @@ public class BarAdapter extends ArrayAdapter<Bar> {
         }
 
         Bar bar = getItem(position);
-        holder.theme.setText(bar.getTheme().toString());
+        holder.ville.setText(bar.getCP() + "-" + bar.getVille());
         holder.nom.setText(bar.getNom());
-        holder.image.setImageResource(R.mipmap.bar);
+
+        int idImage = 0;
+        switch (bar.getTheme()){
+            case Bar_à_Vins :
+                idImage = R.mipmap.baravins;
+                break;
+            case Bar_à_Biere :
+                idImage = R.mipmap.barabiere;
+                break;
+            case Bar_sans_Alcool :
+                idImage = R.mipmap.barsansalcool;
+                break;
+            case    Bar_à_Cocktails :
+                idImage = R.mipmap.baracocktails;
+                break;
+            case    Pub_Irlandais :
+                idImage = R.mipmap.pubirlandais;
+                break;
+            case    Bar_Sportif:
+                idImage = R.mipmap.barsportif;
+                break;
+            case    Bar_à_Musique :
+                idImage = R.mipmap.baramusique;
+                break;
+            case    Bar_Latinos :
+                idImage = R.mipmap.barlatino;
+                break;
+            default :
+                idImage = R.mipmap.bar;
+        }
+        holder.image.setImageResource(idImage);
         return row;
     }
 
     private class BarViewHolder {
         public ImageView image;
-        public TextView theme;
+        public TextView ville;
         public TextView nom;
     }
 

@@ -27,6 +27,8 @@ public class LoginActivity extends AppCompatActivity {
         this.requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_login);
 
+        // TODO : Mettre en place login avec identifiant et mot de passe
+
         bouton_login = (Button) findViewById(R.id.btn_login);
         editText_email = (EditText) findViewById(R.id.input_email);
         editText_motdepasse = (EditText) findViewById(R.id.input_password);

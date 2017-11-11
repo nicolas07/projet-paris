@@ -31,11 +31,8 @@ import java.util.ArrayList;
  */
 public class FragmentRecherche extends Fragment implements CompoundButton.OnCheckedChangeListener{
 
-    private ImageView img_PlusTheme;
-    private RadioGroup rg_Prix;
-    private RadioButton rb_PrixFaible;
-    private static ArrayList<String> mChoixBars;
-    private TextView textView_themes;
+    private ImageView igChoixTheme;
+    private TextView tvThemes;
 
     //Prix
     private CheckBox cbPrixFaible;
@@ -43,12 +40,9 @@ public class FragmentRecherche extends Fragment implements CompoundButton.OnChec
     private CheckBox cbPrixEleve;
 
     //Localisation
-    private RadioButton rButton;
     private RadioGroup rgLocalisation;
     private EditText etVilleCP;
     String sVilleCP = "";
-
-    private TextView test;
 
     public static Fragment newInstance(Context context) {
         FragmentRecherche f = new FragmentRecherche();
@@ -62,15 +56,15 @@ public class FragmentRecherche extends Fragment implements CompoundButton.OnChec
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        ((MainActivity) getActivity()).getSupportActionBar().setTitle("Recherche");
+
         final View root = (View) inflater.inflate(R.layout.fragment_recherche, null);
 
-        SharedPreferences pref = getActivity().getSharedPreferences("MyPref", 0); // 0 - for private mode
-        String set = pref.getString("key", null);
-
-        textView_themes = (TextView) root.findViewById(R.id.textView_themes);
-        textView_themes.setText(set);
-        img_PlusTheme = (ImageView) root.findViewById(R.id.img_PlusTheme);
-        img_PlusTheme.setOnClickListener(new View.OnClickListener() {
+        tvThemes = (TextView) root.findViewById(R.id.textView_themes);
+        String t = SharedPreferencesHelper.getInstance(getContext()).RecupererThemesSelectionnesString();
+        tvThemes.setText(t);
+        igChoixTheme = (ImageView) root.findViewById(R.id.img_PlusTheme);
+        igChoixTheme.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 AfficherDialogChoixTheme();
@@ -113,6 +107,37 @@ public class FragmentRecherche extends Fragment implements CompoundButton.OnChec
             @Override
             public void onClick(View v) {
 
+                String prixSelectionnes = "";
+                if(cbPrixFaible.isChecked()){
+                    prixSelectionnes = "PrixFaible,";
+                }
+
+                if(cbPrixModere.isChecked()){
+                    prixSelectionnes += "PrixModere,";
+                }
+
+                if(cbPrixEleve.isChecked()){
+                    prixSelectionnes += "PrixEleve";
+                }
+
+                if(prixSelectionnes.endsWith(","))
+                {
+                    prixSelectionnes.substring(0,prixSelectionnes.length()-1);
+                }
+
+                SharedPreferencesHelper.getInstance(getContext()).SauvegarderPrixSelectionnes(prixSelectionnes);
+
+                //Remise à zéro des champs de recherche
+                tvThemes.setText("");
+                rgLocalisation.clearCheck();
+                etVilleCP.setText("");
+                cbPrixFaible.setChecked(false);
+                cbPrixModere.setChecked(false);
+                cbPrixEleve.setChecked(false);
+
+                ArrayList<Bar> bars = BarHelper.getInstance().Rechercher(getContext());
+                SharedPreferencesHelper.getInstance(getContext()).SauvegarderListeBars(bars);
+
                 FragmentManager mFragmentManager = getActivity().getSupportFragmentManager();
                 FragmentTransaction mFragmentTransaction = mFragmentManager.beginTransaction();
                 Fragment f = new FragmentListeBars();
@@ -130,7 +155,7 @@ public class FragmentRecherche extends Fragment implements CompoundButton.OnChec
         final ArrayList<String> seletedThemes = new ArrayList<>();
         ArrayList<String> ListeThemes = new ArrayList<>();
         for(int i = 0; i < Theme.values().length; i++){
-            ListeThemes.add(Theme.values()[i].name());
+            ListeThemes.add(Theme.values()[i].name().replace("_"," "));
         }
 
         final String[] themes = ListeThemes.toArray(new String[ListeThemes.size()]);
@@ -158,12 +183,10 @@ public class FragmentRecherche extends Fragment implements CompoundButton.OnChec
 
                         for (Object s : seletedThemes)
                         {
-                            listeSelectedThemes += "," + s.toString();
+                            listeSelectedThemes += s.toString() + "\n";
                         }
-                        SharedPreferences pref = getActivity().getSharedPreferences("MyPref", 0); // 0 - for private mode
-                        SharedPreferences.Editor editor = pref.edit();
-                        editor.putString("key", listeSelectedThemes);
-                        editor.commit();
+
+                        SharedPreferencesHelper.getInstance(getContext()).SauvegarderThemesSelectionnes(listeSelectedThemes);
 
                         Fragment fragment = FragmentRecherche.newInstance(getContext());
                         FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();

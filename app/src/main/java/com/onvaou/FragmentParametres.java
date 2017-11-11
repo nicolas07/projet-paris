@@ -11,17 +11,13 @@ import android.view.ViewGroup;
 /**
  * Created by Nicolas on 23/09/2017.
  */
-public class FragmentParametres extends Fragment {
-
-    public static Fragment newInstance(Context context) {
-        FragmentParametres f = new FragmentParametres();
-
-        return f;
-    }
+public class FragmentParametres extends PreferenceFragment {
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        ViewGroup root = (ViewGroup) inflater.inflate(R.layout.fragment_parametres, null);
-        return root;
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        // Load the preferences from an XML resource
+        addPreferencesFromResource(R.xml.fragment_parametres);
     }
 }
