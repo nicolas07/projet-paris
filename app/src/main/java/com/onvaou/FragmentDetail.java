@@ -84,6 +84,15 @@ public class FragmentDetail extends Fragment {
                 break;
         }
 
+        final ImageView ivNote = (ImageView) view.findViewById(R.id.ivAddNote);
+        ivNote.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+                AfficherDialogNote();
+            }
+        });
+
         final ImageView ivFavori = (ImageView) view.findViewById(R.id.ivFavori);
         if(b.isFavori())
             ivFavori.setImageResource(R.mipmap.favori);
@@ -156,17 +165,17 @@ public class FragmentDetail extends Fragment {
 //        });
 
 
-        Button btNote = (Button) view.findViewById(R.id.btNoter);
-
-        btNote.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-//                Toast.makeText(getContext(),"Merci de votre avis", Toast.LENGTH_SHORT).show();
-//                rbNote.setRating(0);
-
-                AfficherDialogNote();
-            }
-        });
+//        Button btNote = (Button) view.findViewById(R.id.btNoter);
+//
+//        btNote.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                 Toast.makeText(getContext(),"Merci de votre avis", Toast.LENGTH_SHORT).show();
+//                 rbNote.setRating(0);
+//
+//                AfficherDialogNote();
+//            }
+//        });
 
 
 
