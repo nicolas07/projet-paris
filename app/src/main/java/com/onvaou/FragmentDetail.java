@@ -52,6 +52,9 @@ public class FragmentDetail extends Fragment {
         ImageView euro2 = (ImageView) view.findViewById(R.id.euro2);
         ImageView euro3 = (ImageView) view.findViewById(R.id.euro3);
 
+        ImageView gps = (ImageView) view.findViewById(R.id.ivMaps);
+        gps.setImageResource(R.mipmap.bar);
+
         Random r = new Random();
         DecimalFormat df = new DecimalFormat("#.00");
         tvNom.setText(b.getNom());
@@ -121,34 +124,34 @@ public class FragmentDetail extends Fragment {
         final double lat = b.getLatitude();
         final double lon = b.getLongitude();
 
-        MapView mMapView = (MapView) view.findViewById(R.id.mapView);
-        mMapView.onCreate(savedInstanceState);
-
-        mMapView.onResume(); // needed to get the map to display immediately
-
-        try {
-            MapsInitializer.initialize(getActivity().getApplicationContext());
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-        mMapView.getMapAsync(new OnMapReadyCallback() {
-            @Override
-            public void onMapReady(GoogleMap mMap) {
-                GoogleMap googleMap = mMap;
-
-                // For showing a move to my location button
-                //googleMap.setMyLocationEnabled(true);
-
-                // For dropping a marker at a point on the Map
-                LatLng sydney = new LatLng(lat, lon);
-                googleMap.addMarker(new MarkerOptions().position(sydney).title("Marker Title").snippet("Marker Description"));
-
-                // For zooming automatically to the location of the marker
-                CameraPosition cameraPosition = new CameraPosition.Builder().target(sydney).zoom(17).build();
-                googleMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
-            }
-        });
+//        MapView mMapView = (MapView) view.findViewById(R.id.mapView);
+//        mMapView.onCreate(savedInstanceState);
+//
+//        mMapView.onResume(); // needed to get the map to display immediately
+//
+//        try {
+//            MapsInitializer.initialize(getActivity().getApplicationContext());
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+//
+//        mMapView.getMapAsync(new OnMapReadyCallback() {
+//            @Override
+//            public void onMapReady(GoogleMap mMap) {
+//                GoogleMap googleMap = mMap;
+//
+//                // For showing a move to my location button
+//                //googleMap.setMyLocationEnabled(true);
+//
+//                // For dropping a marker at a point on the Map
+//                LatLng sydney = new LatLng(lat, lon);
+//                googleMap.addMarker(new MarkerOptions().position(sydney).title("Marker Title").snippet("Marker Description"));
+//
+//                // For zooming automatically to the location of the marker
+//                CameraPosition cameraPosition = new CameraPosition.Builder().target(sydney).zoom(17).build();
+//                googleMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
+//            }
+//        });
 
 //        final RatingBar rbNote = (RatingBar) view.findViewById(R.id.rbNote);
         Button btNote = (Button) view.findViewById(R.id.btNoter);

@@ -5,15 +5,22 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/ic_cocktail"
         android:label="@string/app_name"
         android:supportsRtl="true"
 
         android:theme="@style/AppTheme">
 
+        //ASUS
+        <!--<meta-data-->
+            <!--android:name="com.google.android.geo.API_KEY"-->
+            <!--android:value="AIzaSyDtLOG7I9u1H2NRLt07t5rFKlcPLjvyOag" />-->
+
+        //SONY
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyDtLOG7I9u1H2NRLt07t5rFKlcPLjvyOag" />
+            android:value="AIzaSyDdk892cEQA1g_c05LdccbuC4NAZeeOXmM" />
+
 
         <activity
             android:name=".MainActivity"

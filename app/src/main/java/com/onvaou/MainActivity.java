@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity
     }
 
     // TODO : Revoir affichage détails
-    // TODO : Remplcer type de prix par image ?
+    // TODO : Remplcer type de prix par image ? ::A tester
     // TODO : Remplacer theme par image theme
     // TODO : Revoir button Noter moche
     // TODO : Pb google maps téléphone françoise
@@ -41,9 +41,10 @@ public class MainActivity extends AppCompatActivity
     //TODO : Defnir Charte de couleur
     //TODO : Changer logo app // Done
     //TODO : Retour rechercher sauvegarsar recherch precedente //Done
-    //TODO : Pop up NOte
+    //TODO : Pop up NOte :: A ttester
     //TODO : Verifier recherche GPS
-    //TODO : Listview pas clockahe sur toute la longeur
+    //TODO : Listview pas clockahe sur toute la longeur ??
+    //TODO: Afficher aucune bars trouver : OK
 
 
     @Override

@@ -2,6 +2,7 @@ package com.onvaou;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -10,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -27,8 +29,8 @@ import java.util.Random;
 public class FragmentListeBars extends Fragment{
 
     private ListView lvBars;
-
     private ArrayList<Bar> listeBars;
+    private TextView tvErreur;
 
     public static Fragment newInstance(Context context) {
         FragmentListeBars f = new FragmentListeBars();
@@ -43,6 +45,13 @@ public class FragmentListeBars extends Fragment{
 
         lvBars = (ListView) root.findViewById(R.id.lvBars);
         listeBars = SharedPreferencesHelper.getInstance(getContext()).RecupererListeBars();
+        tvErreur = (TextView) root.findViewById(R.id.tvErreur);
+        tvErreur.setVisibility(View.INVISIBLE);
+        if(listeBars == null || listeBars.size() == 0){
+            tvErreur.setTextColor(Color.RED);
+            tvErreur.setVisibility(View.VISIBLE);
+        }
+
         BarAdapter adapter = new BarAdapter(getContext(), R.layout.row_listebars,listeBars);
         lvBars.setAdapter(adapter);
 

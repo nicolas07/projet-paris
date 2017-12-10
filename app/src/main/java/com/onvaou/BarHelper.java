@@ -87,7 +87,7 @@ public class BarHelper {
                 if(themes.contains(b.getTheme()) && prix.contains(b.getPrix())){
                     barsRecherche.add(b);
                 }
-            } else if(localisation.substring(0,1).equals("CP")) {
+            } else if(localisation.substring(0,2).equals("CP")) {
                 if(themes.contains(b.getTheme()) && prix.contains(b.getPrix()) && localisation.contains(b.getCP())){
                     barsRecherche.add(b);
                 }

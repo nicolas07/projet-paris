@@ -112,12 +112,20 @@
 
     </LinearLayout>
 
-    <com.google.android.gms.maps.MapView
-        android:id="@+id/mapView"
+    <!--<com.google.android.gms.maps.MapView-->
+        <!--android:id="@+id/mapView"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="285dp"-->
+        <!--android:layout_alignParentBottom="true"-->
+        <!--android:layout_centerHorizontal="true"-->
+        <!--android:layout_marginBottom="5dp" />-->
+    <!---->
+    <ImageView
+        android:id="@+id/ivMaps"
         android:layout_width="match_parent"
         android:layout_height="285dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="5dp" />
+        android:layout_marginBottom="5dp"/>
 
 </LinearLayout>

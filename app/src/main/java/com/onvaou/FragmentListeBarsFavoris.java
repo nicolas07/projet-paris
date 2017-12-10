@@ -1,6 +1,7 @@
 package com.onvaou;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -10,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
@@ -19,7 +21,7 @@ import java.util.ArrayList;
 public class FragmentListeBarsFavoris extends Fragment{
 
     private ListView lvBars;
-
+    private TextView tvErreur;
     private ArrayList<Bar> listeBars;
 
     public static Fragment newInstance(Context context) {
@@ -40,20 +42,12 @@ public class FragmentListeBarsFavoris extends Fragment{
         BarAdapter adapter = new BarAdapter(getContext(), R.layout.row_listebars,listeBars);
         lvBars.setAdapter(adapter);
 
-        lvBars.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-//
-//                FragmentManager mFragmentManager = getActivity().getSupportFragmentManager();
-//                FragmentTransaction mFragmentTransaction = mFragmentManager.beginTransaction();
-//                Fragment f = new FragmentDetail();
-//                Bundle bundle = new Bundle();
-//                bundle.putInt("BarSelectionne", position);
-//                f.setArguments(bundle);
-//                mFragmentTransaction.replace(R.id.content_frame,f ,"DETAIL").addToBackStack("Liste->Detail");
-//                mFragmentTransaction.commit();
-
-            }
-        });
+        tvErreur = (TextView) root.findViewById(R.id.tvErreurFavori);
+        tvErreur.setVisibility(View.INVISIBLE);
+        if(listeBars == null || listeBars.size() == 0){
+            tvErreur.setTextColor(Color.RED);
+            tvErreur.setVisibility(View.VISIBLE);
+        }
 
         return root;
     }
