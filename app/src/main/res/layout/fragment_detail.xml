@@ -8,7 +8,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:columnCount="2"
-        android:rowCount="5">
+        android:rowCount="6">
 
         <TextView
             android:id="@+id/tvNom"
@@ -42,13 +42,13 @@
             android:layout_row="3"
             android:layout_gravity="left"/>
 
-        <TextView
-            android:id="@+id/tvPrix"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_column="0"
-            android:layout_row="4"
-            android:layout_gravity="left"/>
+        <!--<TextView-->
+        <!--android:id="@+id/tvPrix"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_column="0"-->
+        <!--android:layout_row="4"-->
+        <!--android:layout_gravity="left"/>-->
 
         <ImageView
             android:id="@+id/ivFavori"
@@ -59,19 +59,47 @@
             android:layout_rowSpan="5"
             android:layout_gravity="right"/>
 
+        <LinearLayout
+            android:layout_row="4"
+            android:layout_rowSpan="1"
+            android:layout_column="0">
+
+            <ImageView
+                android:id="@+id/euro1"
+                android:layout_width="32dp"
+                android:layout_height="30dp"
+                android:src="@mipmap/euro"
+                android:layout_gravity="center"/>
+
+            <ImageView
+                android:id="@+id/euro2"
+                android:layout_width="32dp"
+                android:layout_height="30dp"
+                android:src="@mipmap/euro"
+                android:layout_gravity="center"/>
+
+            <ImageView
+                android:id="@+id/euro3"
+                android:layout_width="32dp"
+                android:layout_height="30dp"
+                android:src="@mipmap/euro"
+                android:layout_gravity="center"/>
+
+        </LinearLayout>
+
     </GridLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content" >
 
-        <RatingBar
-            android:id="@+id/rbNote"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.7"
-            android:numStars="5"
-            android:layout_gravity="left"/>
+        <!--<RatingBar-->
+        <!--android:id="@+id/rbNote"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_weight="0.7"-->
+        <!--android:numStars="5"-->
+        <!--android:layout_gravity="left"/>-->
 
         <android.support.v7.widget.AppCompatButton
             android:id="@+id/btNoter"

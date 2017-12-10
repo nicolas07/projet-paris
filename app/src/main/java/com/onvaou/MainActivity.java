@@ -28,6 +28,24 @@ public class MainActivity extends AppCompatActivity
 
     }
 
+    // TODO : Revoir affichage détails
+    // TODO : Remplcer type de prix par image ?
+    // TODO : Remplacer theme par image theme
+    // TODO : Revoir button Noter moche
+    // TODO : Pb google maps téléphone françoise
+    //TODO : Pop localisation // Done
+    //TODO : GPS restriante à 75016 // a tester
+    //TODO : Afficher nombre euro en fonction du prix
+    //TODO : Creer bar 16ème
+    //TODO : Clean Code
+    //TODO : Defnir Charte de couleur
+    //TODO : Changer logo app // Done
+    //TODO : Retour rechercher sauvegarsar recherch precedente //Done
+    //TODO : Pop up NOte
+    //TODO : Verifier recherche GPS
+    //TODO : Listview pas clockahe sur toute la longeur
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -66,12 +84,12 @@ public class MainActivity extends AppCompatActivity
         }
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main, menu);
-        return true;
-    }
+//    @Override
+//    public boolean onCreateOptionsMenu(Menu menu) {
+//        // Inflate the menu; this adds items to the action bar if it is present.
+//        getMenuInflater().inflate(R.menu.main, menu);
+//        return true;
+//    }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {

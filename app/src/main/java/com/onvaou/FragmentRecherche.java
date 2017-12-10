@@ -41,6 +41,8 @@ public class FragmentRecherche extends Fragment implements CompoundButton.OnChec
 
     //Localisation
     private RadioGroup rgLocalisation;
+    private RadioButton rbGPS;
+    private RadioButton rbCP;
     private EditText etVilleCP;
     String sVilleCP = "";
 
@@ -60,6 +62,7 @@ public class FragmentRecherche extends Fragment implements CompoundButton.OnChec
 
         final View root = (View) inflater.inflate(R.layout.fragment_recherche, null);
 
+        //Themes
         tvThemes = (TextView) root.findViewById(R.id.textView_themes);
         String t = SharedPreferencesHelper.getInstance(getContext()).RecupererThemesSelectionnesString();
         tvThemes.setText(t);
@@ -71,6 +74,7 @@ public class FragmentRecherche extends Fragment implements CompoundButton.OnChec
             }
         });
 
+
         //Prix
         cbPrixFaible = (CheckBox) root.findViewById(R.id.cb_PrixFaible);
         cbPrixModere = (CheckBox) root.findViewById(R.id.cb_PrixModere);
@@ -80,32 +84,53 @@ public class FragmentRecherche extends Fragment implements CompoundButton.OnChec
         cbPrixModere.setOnCheckedChangeListener(this);
         cbPrixEleve.setOnCheckedChangeListener(this);
 
+        ArrayList<Prix> p = SharedPreferencesHelper.getInstance(getContext()).RecupererPrixSelectionnes();
+
+        if(p.contains(Prix.Faible)){
+            cbPrixFaible.setChecked(true);
+        }
+        if(p.contains(Prix.Modere)){
+            cbPrixModere.setChecked(true);
+        }
+        if(p.contains(Prix.Eleve)){
+            cbPrixEleve.setChecked(true);
+        }
 
         //Localisation
+        String localisation = "";
         rgLocalisation = (RadioGroup)root.findViewById(R.id.rg_localisation);
         etVilleCP = (EditText) root.findViewById(R.id.et_VilleCP);
-        rgLocalisation.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(RadioGroup radioGroup, int i) {
-                Log.d("chk", "id" + i);
+        rbGPS = (RadioButton) root.findViewById(R.id.rb_LocalisationGPS);
+        rbCP = (RadioButton) root.findViewById(R.id.rb_LocalisationCP);
 
-                if (i == R.id.rb_LocalisationGPS) {
-                    //some code
-                    sVilleCP = "GPS";
-                } else if (i == R.id.rb_LocalisationCP) {
-                    //some code
-                    sVilleCP = etVilleCP.getText().toString();
-                }
-                Toast.makeText(getContext(), sVilleCP, Toast.LENGTH_SHORT).show();
 
-            }
-        });
+        String l = SharedPreferencesHelper.getInstance(getContext()).RecupererTypeLocalisationSelectionnee();
+
+        if(l.startsWith("GPS")){
+            rbGPS.setChecked(true);
+        }
+        if(l.startsWith("CP")){
+            rbCP.setChecked(true);
+            etVilleCP.setText(l.substring(2));
+        }
 
         Button btRecherche = (Button) root.findViewById(R.id.btn_Recherche);
         btRecherche.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
+
+                String tmp = "";
+                if(rbGPS.isChecked()){
+                    tmp="GPS";
+                }
+
+                if(rbCP.isChecked()){
+                    tmp="CP"+etVilleCP.getText().toString();
+                }
+
+
+                SharedPreferencesHelper.getInstance(getContext()).SauvegarderTypeLocalisationSelectionnee(tmp);
 
                 String prixSelectionnes = "";
                 if(cbPrixFaible.isChecked()){
@@ -128,12 +153,12 @@ public class FragmentRecherche extends Fragment implements CompoundButton.OnChec
                 SharedPreferencesHelper.getInstance(getContext()).SauvegarderPrixSelectionnes(prixSelectionnes);
 
                 //Remise à zéro des champs de recherche
-                tvThemes.setText("");
-                rgLocalisation.clearCheck();
-                etVilleCP.setText("");
-                cbPrixFaible.setChecked(false);
-                cbPrixModere.setChecked(false);
-                cbPrixEleve.setChecked(false);
+//                tvThemes.setText("");
+//                rgLocalisation.clearCheck();
+//                etVilleCP.setText("");
+//                cbPrixFaible.setChecked(false);
+//                cbPrixModere.setChecked(false);
+//                cbPrixEleve.setChecked(false);
 
                 ArrayList<Bar> bars = BarHelper.getInstance().Rechercher(getContext());
                 SharedPreferencesHelper.getInstance(getContext()).SauvegarderListeBars(bars);

@@ -80,15 +80,23 @@ public class BarHelper {
         ArrayList<Bar> bars = LireFichierBars(ctx);
         ArrayList<Theme> themes = SharedPreferencesHelper.getInstance(ctx).RecupererThemesSelectionnes();
         ArrayList<Prix> prix = SharedPreferencesHelper.getInstance(ctx).RecupererPrixSelectionnes();
+        String localisation = SharedPreferencesHelper.getInstance(ctx).RecupererTypeLocalisationSelectionnee();
 
         for (Bar b : bars) {
-            if(themes.contains(b.getTheme()) && prix.contains(b.getPrix())){
-                barsRecherche.add(b);
+            if(localisation.equals("GPS")){
+                if(themes.contains(b.getTheme()) && prix.contains(b.getPrix())){
+                    barsRecherche.add(b);
+                }
+            } else if(localisation.substring(0,1).equals("CP")) {
+                if(themes.contains(b.getTheme()) && prix.contains(b.getPrix()) && localisation.contains(b.getCP())){
+                    barsRecherche.add(b);
+                }
             }
+
         }
 
-    return barsRecherche;
-}
+        return barsRecherche;
+    }
 
 //        //Pour chaque theme selectionne
 //        for (Theme t : themes) {

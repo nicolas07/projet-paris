@@ -52,76 +52,76 @@
         android:text="Prix : " />
 
     <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <CheckBox
+            android:id="@+id/cb_PrixFaible"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal" >
+            android:layout_gravity="center"/>
 
-            <CheckBox
-                android:id="@+id/cb_PrixFaible"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"/>
+        <ImageView
+            android:layout_width="32dp"
+            android:layout_height="30dp"
+            android:src="@mipmap/euro"
+            android:layout_gravity="center"/>
+    </LinearLayout>
 
-            <ImageView
-                android:layout_width="32dp"
-                android:layout_height="30dp"
-                android:src="@mipmap/euro"
-                android:layout_gravity="center"/>
-        </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
 
-        <LinearLayout
+        <CheckBox
+            android:id="@+id/cb_PrixModere"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal" >
+            android:layout_gravity="center"/>
 
-            <CheckBox
-                android:id="@+id/cb_PrixModere"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"/>
+        <ImageView
+            android:layout_width="32dp"
+            android:layout_height="30dp"
+            android:src="@mipmap/euro"
+            android:layout_gravity="center"/>
 
-            <ImageView
-                android:layout_width="32dp"
-                android:layout_height="30dp"
-                android:src="@mipmap/euro"
-                android:layout_gravity="center"/>
+        <ImageView
+            android:layout_width="32dp"
+            android:layout_height="30dp"
+            android:src="@mipmap/euro"
+            android:layout_gravity="center"/>
+    </LinearLayout>
 
-            <ImageView
-                android:layout_width="32dp"
-                android:layout_height="30dp"
-                android:src="@mipmap/euro"
-                android:layout_gravity="center"/>
-        </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
 
-        <LinearLayout
+        <CheckBox
+            android:id="@+id/cb_PrixEleve"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal" >
+            android:layout_gravity="center"/>
 
-            <CheckBox
-                android:id="@+id/cb_PrixEleve"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"/>
+        <ImageView
+            android:layout_width="32dp"
+            android:layout_height="30dp"
+            android:src="@mipmap/euro"
+            android:layout_gravity="center"/>
 
-            <ImageView
-                android:layout_width="32dp"
-                android:layout_height="30dp"
-                android:src="@mipmap/euro"
-                android:layout_gravity="center"/>
+        <ImageView
+            android:layout_width="32dp"
+            android:layout_height="30dp"
+            android:src="@mipmap/euro"
+            android:layout_gravity="center"/>
 
-            <ImageView
-                android:layout_width="32dp"
-                android:layout_height="30dp"
-                android:src="@mipmap/euro"
-                android:layout_gravity="center"/>
-
-            <ImageView
-                android:layout_width="32dp"
-                android:layout_height="30dp"
-                android:src="@mipmap/euro"
-                android:layout_gravity="center"/>
-        </LinearLayout>
+        <ImageView
+            android:layout_width="32dp"
+            android:layout_height="30dp"
+            android:src="@mipmap/euro"
+            android:layout_gravity="center"/>
+    </LinearLayout>
 
     <TextView
         android:id="@+id/textViewLocalisation"
@@ -160,7 +160,9 @@
             android:layout_height="40dp"
             android:layout_alignBottom="@+id/rg_localisation"
             android:layout_toEndOf="@+id/rg_localisation"
-            android:hint="CP, Ville" />
+            android:hint="CP, Ville"
+            android:maxLines="1"
+            android:inputType="text"/>
 
     </RelativeLayout>
 

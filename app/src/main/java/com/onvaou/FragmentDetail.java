@@ -1,7 +1,9 @@
 package com.onvaou;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AlertDialog;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -43,8 +45,12 @@ public class FragmentDetail extends Fragment {
         TextView tvNom = (TextView) view.findViewById(R.id.tvNom);
         TextView tvNote = (TextView) view.findViewById(R.id.tvNote);
         TextView tvTheme = (TextView) view.findViewById(R.id.tvTheme);
-        TextView tvPrix = (TextView) view.findViewById(R.id.tvPrix);
+//        TextView tvPrix = (TextView) view.findViewById(R.id.tvPrix);
         TextView tvAdresse = (TextView) view.findViewById(R.id.tvAdresse);
+
+        ImageView euro1 = (ImageView) view.findViewById(R.id.euro1);
+        ImageView euro2 = (ImageView) view.findViewById(R.id.euro2);
+        ImageView euro3 = (ImageView) view.findViewById(R.id.euro3);
 
         Random r = new Random();
         DecimalFormat df = new DecimalFormat("#.00");
@@ -52,8 +58,26 @@ public class FragmentDetail extends Fragment {
         int nbAvis = r.nextInt(50-15)+15;
         tvNote.setText( "Note = " + df.format(b.getNote()) + "("+ nbAvis+" avis)");
         tvTheme.setText(b.getTheme().name().replace("_"," "));
-        tvPrix.setText(b.getPrix().name());
+//        tvPrix.setText(b.getPrix().name());
         tvAdresse.setText(b.getAdresse() + "\n" + b.getCP() +" - "+b.getVille());
+
+        switch (b.getPrix()){
+            case Faible:
+                euro1.setVisibility(View.VISIBLE);
+                euro2.setVisibility(View.INVISIBLE);
+                euro3.setVisibility(View.INVISIBLE);
+                break;
+            case Modere:
+                euro1.setVisibility(View.VISIBLE);
+                euro2.setVisibility(View.VISIBLE);
+                euro3.setVisibility(View.INVISIBLE);
+                break;
+            case Eleve:
+                euro1.setVisibility(View.VISIBLE);
+                euro2.setVisibility(View.VISIBLE);
+                euro3.setVisibility(View.VISIBLE);
+                break;
+        }
 
         final ImageView ivFavori = (ImageView) view.findViewById(R.id.ivFavori);
         if(b.isFavori())
@@ -126,14 +150,16 @@ public class FragmentDetail extends Fragment {
             }
         });
 
-        final RatingBar rbNote = (RatingBar) view.findViewById(R.id.rbNote);
+//        final RatingBar rbNote = (RatingBar) view.findViewById(R.id.rbNote);
         Button btNote = (Button) view.findViewById(R.id.btNoter);
 
         btNote.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(getContext(),"Merci de votre avis", Toast.LENGTH_SHORT).show();
-                rbNote.setRating(0);
+//                Toast.makeText(getContext(),"Merci de votre avis", Toast.LENGTH_SHORT).show();
+//                rbNote.setRating(0);
+
+                AfficherDialogNote();
             }
         });
 
@@ -141,5 +167,33 @@ public class FragmentDetail extends Fragment {
 
         return view;
     }
+
+
+
+    private void AfficherDialogNote() {
+
+        AlertDialog dialog = new AlertDialog.Builder(getContext())
+                .setTitle("Choix des thèmes")
+                .setView(R.layout.note_layout)
+                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int id) {
+                        //  Your code when user clicked on OK
+                        //  You can write the code  to save the selected item here
+                        Toast.makeText(getContext(),"Merci de votre avis", Toast.LENGTH_SHORT).show();
+                        dialog.dismiss();
+
+                    }
+                }).setNegativeButton("Annuler", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int id) {
+                        //  Your code when user clicked on Cancel
+                        dialog.dismiss();
+                    }
+                }).create();
+        dialog.show();
+
+    }
+
 
 }

@@ -22,6 +22,7 @@ public class SharedPreferencesHelper {
     private static String Key_ThemesSelectionnes = "ListeThemesSelectionnes";
     private static String Key_ListeBars = "ListeBars";
     private static String Key_ListeBarsFavoris = "ListeBarsFavoris";
+    private static String Key_Localisation = "TypeLocalisation";
 
     protected SharedPreferencesHelper(Context context) {
         // Exists only to defeat instantiation.
@@ -116,6 +117,16 @@ public class SharedPreferencesHelper {
             Listeprix.add(new PrixHelper().ConvertirStringVersPrix(s));
         }
         return Listeprix;
+    }
+
+    public void SauvegarderTypeLocalisationSelectionnee(String localisation){
+        SharedPreferences.Editor editor = prefs.edit();
+        editor.putString(Key_Localisation, localisation);
+        editor.commit();
+    }
+
+    public String RecupererTypeLocalisationSelectionnee(){
+        return prefs.getString(Key_Localisation,"");
     }
 
     public void Clear(){
