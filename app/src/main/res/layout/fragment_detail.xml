@@ -34,13 +34,29 @@
             android:layout_row="2"
             android:layout_gravity="left"/>
 
-        <TextView
-            android:id="@+id/tvNote"
+
+
+        <LinearLayout
+            android:layout_row="3"
+            android:layout_rowSpan="1"
+            android:layout_column="0">
+
+            <RatingBar
+            android:id="@+id/rbNote"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_column="0"
-            android:layout_row="3"
+            android:numStars="5"
             android:layout_gravity="left"/>
+
+            <TextView
+                android:id="@+id/tvNote"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="0"
+                android:layout_row="3"
+                android:layout_gravity="left"/>
+
+        </LinearLayout>
 
         <!--<TextView-->
         <!--android:id="@+id/tvPrix"-->

@@ -59,8 +59,10 @@ public class FragmentDetail extends Fragment {
         DecimalFormat df = new DecimalFormat("#.00");
         tvNom.setText(b.getNom());
         int nbAvis = r.nextInt(50-15)+15;
-        tvNote.setText( "Note = " + df.format(b.getNote()) + "("+ nbAvis+" avis)");
+        tvNote.setText(" ("+ nbAvis+" avis)");
         tvTheme.setText(b.getTheme().name().replace("_"," "));
+        final RatingBar rbNote = (RatingBar) view.findViewById(R.id.rbNote);
+        rbNote.setRating(b.getNote());
 //        tvPrix.setText(b.getPrix().name());
         tvAdresse.setText(b.getAdresse() + "\n" + b.getCP() +" - "+b.getVille());
 
@@ -153,7 +155,7 @@ public class FragmentDetail extends Fragment {
 //            }
 //        });
 
-//        final RatingBar rbNote = (RatingBar) view.findViewById(R.id.rbNote);
+
         Button btNote = (Button) view.findViewById(R.id.btNoter);
 
         btNote.setOnClickListener(new View.OnClickListener() {
