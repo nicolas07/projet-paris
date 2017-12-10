@@ -12,14 +12,14 @@
         android:theme="@style/AppTheme">
 
         //ASUS
-        <!--<meta-data-->
-            <!--android:name="com.google.android.geo.API_KEY"-->
-            <!--android:value="AIzaSyDtLOG7I9u1H2NRLt07t5rFKlcPLjvyOag" />-->
-
-        //SONY
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyDdk892cEQA1g_c05LdccbuC4NAZeeOXmM" />
+            android:value="AIzaSyDtLOG7I9u1H2NRLt07t5rFKlcPLjvyOag" />
+
+        //SONY
+        <!--<meta-data-->
+            <!--android:name="com.google.android.geo.API_KEY"-->
+            <!--android:value="AIzaSyDdk892cEQA1g_c05LdccbuC4NAZeeOXmM" />-->
 
 
         <activity

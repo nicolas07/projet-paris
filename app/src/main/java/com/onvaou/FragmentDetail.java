@@ -53,7 +53,7 @@ public class FragmentDetail extends Fragment {
         ImageView euro3 = (ImageView) view.findViewById(R.id.euro3);
 
         ImageView gps = (ImageView) view.findViewById(R.id.ivMaps);
-        gps.setImageResource(R.mipmap.bar);
+        gps.setImageResource(R.mipmap.gps);
 
         Random r = new Random();
         DecimalFormat df = new DecimalFormat("#.00");
