@@ -8,7 +8,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:columnCount="2"
-        android:rowCount="6">
+        android:rowCount="8">
 
         <TextView
             android:id="@+id/tvNom"
@@ -16,7 +16,9 @@
             android:layout_height="wrap_content"
             android:layout_column="0"
             android:layout_row="0"
-            android:layout_gravity="left"/>
+            android:layout_gravity="left"
+            android:textSize="20dp"
+            android:textStyle="bold"/>
 
         <TextView
             android:id="@+id/tvAdresse"
@@ -27,118 +29,99 @@
             android:layout_gravity="left"/>
 
         <TextView
-            android:id="@+id/tvTheme"
+            android:id="@+id/tvAmbiance"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_column="0"
             android:layout_row="2"
             android:layout_gravity="left"/>
 
-
-
-        <LinearLayout
-            android:layout_row="3"
-            android:layout_rowSpan="1"
-            android:layout_column="0">
-
-            <RatingBar
-            android:id="@+id/rbNote"
+        <TextView
+            android:id="@+id/tvEnseigne"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:numStars="5"
+            android:layout_column="0"
+            android:layout_row="3"
             android:layout_gravity="left"/>
 
-            <TextView
-                android:id="@+id/tvNote"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_column="0"
-                android:layout_row="3"
-                android:layout_gravity="left"/>
-
-
-
-        </LinearLayout>
-
-        <!--<TextView-->
-        <!--android:id="@+id/tvPrix"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_column="0"-->
-        <!--android:layout_row="4"-->
-        <!--android:layout_gravity="left"/>-->
-
-        <ImageView
-            android:id="@+id/ivFavori"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_column="1"
-            android:layout_row="0"
-            android:layout_rowSpan="5"
-            android:layout_gravity="right"/>
-
-        <ImageView
-            android:id="@+id/ivAddNote"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_column="1"
-            android:layout_row="3"
-            android:layout_rowSpan="5"
-            android:layout_gravity="right"
-            android:background="@mipmap/addstar"/>
+        <TextView
+            android:id="@+id/tvOrientation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="0"
+            android:layout_row="4"
+            android:layout_gravity="left"/>
 
         <LinearLayout
-            android:layout_row="4"
+            android:layout_row="5"
             android:layout_rowSpan="1"
             android:layout_column="0">
 
             <ImageView
                 android:id="@+id/euro1"
-                android:layout_width="32dp"
-                android:layout_height="30dp"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
                 android:src="@mipmap/euro"
                 android:layout_gravity="center"/>
 
             <ImageView
                 android:id="@+id/euro2"
-                android:layout_width="32dp"
-                android:layout_height="30dp"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
                 android:src="@mipmap/euro"
                 android:layout_gravity="center"/>
 
             <ImageView
                 android:id="@+id/euro3"
-                android:layout_width="32dp"
-                android:layout_height="30dp"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
                 android:src="@mipmap/euro"
                 android:layout_gravity="center"/>
 
         </LinearLayout>
 
+        <LinearLayout
+            android:layout_row="6"
+            android:layout_rowSpan="1"
+            android:layout_column="0">
+
+            <RatingBar
+                android:id="@+id/rbNote"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:numStars="5"
+                style="?android:attr/ratingBarStyleIndicator"/>
+
+            <TextView
+                android:id="@+id/tvNote"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"/>
+
+        </LinearLayout>
+
+
+        <ImageView
+            android:id="@+id/ivFavori"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_column="1"
+            android:layout_row="0"
+            android:layout_rowSpan="2"
+            android:layout_gravity="right"/>
+
+        <ImageView
+            android:id="@+id/ivAddNote"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_column="1"
+            android:layout_row="6"
+            android:layout_rowSpan="1"
+            android:layout_gravity="right"
+            android:background="@mipmap/addstar"/>
+
     </GridLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
-
-        <!--<RatingBar-->
-        <!--android:id="@+id/rbNote"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_weight="0.7"-->
-        <!--android:numStars="5"-->
-        <!--android:layout_gravity="left"/>-->
-
-        <!--<android.support.v7.widget.AppCompatButton-->
-            <!--android:id="@+id/btNoter"-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:text="Noter"-->
-            <!--android:layout_weight="0.3"-->
-            <!--android:layout_gravity="right"-->
-            <!--android:background="#ff6666"/>-->
-
-    </LinearLayout>
 
     <!--<com.google.android.gms.maps.MapView-->
         <!--android:id="@+id/mapView"-->
@@ -154,6 +137,6 @@
         android:layout_height="285dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="5dp"/>
+        android:layout_marginBottom="10dp"/>
 
 </LinearLayout>

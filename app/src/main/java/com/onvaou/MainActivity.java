@@ -28,23 +28,9 @@ public class MainActivity extends AppCompatActivity
 
     }
 
-    // TODO : Revoir affichage détails
-    // TODO : Remplcer type de prix par image ? ::A tester
-    // TODO : Remplacer theme par image theme
-    // TODO : Revoir button Noter moche
-    // TODO : Pb google maps téléphone françoise
-    //TODO : Pop localisation // Done
-    //TODO : GPS restriante à 75016 // a tester
-    //TODO : Afficher nombre euro en fonction du prix
     //TODO : Creer bar 16ème
     //TODO : Clean Code
-    //TODO : Defnir Charte de couleur
-    //TODO : Changer logo app // Done
-    //TODO : Retour rechercher sauvegarsar recherch precedente //Done
-    //TODO : Pop up NOte :: A tester
-    //TODO : Verifier recherche GPS
-    //TODO : Listview pas clockahe sur toute la longeur ??
-    //TODO: Afficher aucune bars trouver : OK
+    //TODO : build APK
 
 
     @Override
@@ -116,7 +102,7 @@ public class MainActivity extends AppCompatActivity
         FragmentTransaction ft = null;
 
         if (id == R.id.nav_rech_theme) {
-            // Recherche des bars par themes
+            // Recherche des bars par ambiances
             fragment = FragmentRecherche.newInstance(this);
         } else if (id == R.id.nav_listebars) {
             // Liste des bars

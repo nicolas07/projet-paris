@@ -19,7 +19,9 @@ public class SharedPreferencesHelper {
     private static SharedPreferencesHelper instance = null;
     private static  SharedPreferences prefs = null;
     private static String Key_PrixSelectionnes = "ListePrixSelectionnes";
-    private static String Key_ThemesSelectionnes = "ListeThemesSelectionnes";
+    private static String Key_AmbiancesSelectionnes = "ListeAmbiancesSelectionnes";
+    private static String Key_EnseignesSelectionnes = "ListeEnsiegnesSelectionnes";
+    private static String Key_OrientationSelectionnee = "OrientationSelectionnee";
     private static String Key_ListeBars = "ListeBars";
     private static String Key_ListeBarsFavoris = "ListeBarsFavoris";
     private static String Key_Localisation = "TypeLocalisation";
@@ -80,26 +82,26 @@ public class SharedPreferencesHelper {
         return bars;
     }
 
-    public void SauvegarderThemesSelectionnes(String listeSelectedThemes){
+    public void SauvegarderAmbiancesSelectionnes(String listeSelectedAmbiances){
         SharedPreferences.Editor editor = prefs.edit();
-        editor.putString(Key_ThemesSelectionnes, listeSelectedThemes);
+        editor.putString(Key_AmbiancesSelectionnes, listeSelectedAmbiances);
         editor.commit();
     }
 
-    public ArrayList<Theme> RecupererThemesSelectionnes(){
-        ArrayList<Theme> themes = new ArrayList<Theme>();
-        String liste = prefs.getString(Key_ThemesSelectionnes,"");
+    public ArrayList<Ambiance> RecupererAmbiancesSelectionnes(){
+        ArrayList<Ambiance> ambiances = new ArrayList<Ambiance>();
+        String liste = prefs.getString(Key_AmbiancesSelectionnes,"");
         String[] listeSplit = liste.split("\n");
 
         for (String s : listeSplit) {
-            themes.add(new ThemeHelper().ConvertirStringVersTheme(s));
+            ambiances.add(new AmbianceHelper().ConvertirStringVersAmbiance(s));
         }
-        return themes;
+        return ambiances;
     }
 
-    public String RecupererThemesSelectionnesString(){
-        ArrayList<Theme> themes = new ArrayList<Theme>();
-        return prefs.getString(Key_ThemesSelectionnes,"");
+    public String RecupererAmbiancesSelectionnesString(){
+        ArrayList<Ambiance> ambiances = new ArrayList<Ambiance>();
+        return prefs.getString(Key_AmbiancesSelectionnes,"");
     }
 
     public void SauvegarderPrixSelectionnes(String listeSelectedPrix){
@@ -135,4 +137,36 @@ public class SharedPreferencesHelper {
         editor.commit();
     }
 
+
+    public void SauvegarderEnseignesSelectionnes(String listeSelectedEnseignes){
+        SharedPreferences.Editor editor = prefs.edit();
+        editor.putString(Key_EnseignesSelectionnes, listeSelectedEnseignes);
+        editor.commit();
+    }
+
+    public ArrayList<Enseigne> RecupererEnseignesSelectionnes(){
+        ArrayList<Enseigne> enseignes = new ArrayList<Enseigne>();
+        String liste = prefs.getString(Key_EnseignesSelectionnes,"");
+        String[] listeSplit = liste.split("\n");
+
+        for (String s : listeSplit) {
+            enseignes.add(new EnseigneHelper().ConvertirStringVersEnseigne(s));
+        }
+        return enseignes;
+    }
+
+    public String RecupererEnseignesSelectionnesString(){
+        ArrayList<Enseigne> enseignes = new ArrayList<Enseigne>();
+        return prefs.getString(Key_EnseignesSelectionnes,"");
+    }
+
+    public void SauvegarderOrientationSelectionnee(String orientation){
+        SharedPreferences.Editor editor = prefs.edit();
+        editor.putString(Key_OrientationSelectionnee, orientation);
+        editor.commit();
+    }
+
+    public String RecupererOrientationSelectionnee(){
+        return prefs.getString(Key_OrientationSelectionnee,"");
+    }
 }

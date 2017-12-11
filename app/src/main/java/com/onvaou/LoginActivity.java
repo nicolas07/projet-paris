@@ -20,14 +20,15 @@ public class LoginActivity extends AppCompatActivity {
     private Button bouton_login;
     private EditText editText_email;
     private EditText editText_motdepasse;
+    private String login = "onvaou@gmail.com";
+    private String mdp = "onvaou";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         this.requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_login);
-
-        // TODO : Mettre en place login avec identifiant et mot de passe
 
         bouton_login = (Button) findViewById(R.id.btn_login);
         editText_email = (EditText) findViewById(R.id.input_email);
@@ -38,7 +39,7 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View view) {
                 String email = editText_email.getText().toString();
                 String motdepasse = editText_motdepasse.getText().toString();
-                if(email != null && !email.isEmpty() && motdepasse != null && !motdepasse.isEmpty())
+                if(email != null && !email.isEmpty() && email.equals(login) && motdepasse != null && !motdepasse.isEmpty() && motdepasse.equals(mdp))
                 {
                     Intent i = new Intent(LoginActivity.this, MainActivity.class);
                     startActivity(i);

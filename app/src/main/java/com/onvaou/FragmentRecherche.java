@@ -24,15 +24,22 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 /**
  * Created by Nicolas on 23/09/2017.
  */
 public class FragmentRecherche extends Fragment implements CompoundButton.OnCheckedChangeListener{
 
-    private ImageView igChoixTheme;
-    private TextView tvThemes;
+    //Ambiance
+    private ImageView igChoixAmbiance;
+    private TextView tvAmbiances;
+
+    //Enseigne
+    private ImageView igChoixEnseigne;
+    private TextView tvEnseignes;
 
     //Prix
     private CheckBox cbPrixFaible;
@@ -45,6 +52,10 @@ public class FragmentRecherche extends Fragment implements CompoundButton.OnChec
     private RadioButton rbCP;
     private EditText etVilleCP;
     String sVilleCP = "";
+
+    //Orientation
+    private RadioButton rbGay;
+    private RadioButton rbHetero;
 
     public static Fragment newInstance(Context context) {
         FragmentRecherche f = new FragmentRecherche();
@@ -62,15 +73,27 @@ public class FragmentRecherche extends Fragment implements CompoundButton.OnChec
 
         final View root = (View) inflater.inflate(R.layout.fragment_recherche, null);
 
-        //Themes
-        tvThemes = (TextView) root.findViewById(R.id.textView_themes);
-        String t = SharedPreferencesHelper.getInstance(getContext()).RecupererThemesSelectionnesString();
-        tvThemes.setText(t);
-        igChoixTheme = (ImageView) root.findViewById(R.id.img_PlusTheme);
-        igChoixTheme.setOnClickListener(new View.OnClickListener() {
+        //Ambiances
+        tvAmbiances = (TextView) root.findViewById(R.id.textView_ambiances);
+        String t = SharedPreferencesHelper.getInstance(getContext()).RecupererAmbiancesSelectionnesString();
+        tvAmbiances.setText(t);
+        igChoixAmbiance = (ImageView) root.findViewById(R.id.img_PlusTheme);
+        igChoixAmbiance.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                AfficherDialogChoixTheme();
+                AfficherDialogChoixAmbiance();
+            }
+        });
+
+        //Enseignes
+        tvEnseignes = (TextView) root.findViewById(R.id.textView_enseignes);
+        String e = SharedPreferencesHelper.getInstance(getContext()).RecupererEnseignesSelectionnesString();
+        tvEnseignes.setText(e);
+        igChoixEnseigne = (ImageView) root.findViewById(R.id.img_PlusEnseigne);
+        igChoixEnseigne.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                AfficherDialogChoixEnseigne();
             }
         });
 
@@ -114,6 +137,19 @@ public class FragmentRecherche extends Fragment implements CompoundButton.OnChec
             etVilleCP.setText(l.substring(2));
         }
 
+        //Orientation
+        rbGay = (RadioButton) root.findViewById(R.id.rb_gay);
+        rbHetero = (RadioButton) root.findViewById(R.id.rb_hetero);
+
+        String o = SharedPreferencesHelper.getInstance(getContext()).RecupererOrientationSelectionnee();
+
+        if(o.startsWith("Gay")){
+            rbHetero.setChecked(true);
+        }
+        if(o.startsWith("Hetero")){
+            rbHetero.setChecked(true);
+        }
+
         Button btRecherche = (Button) root.findViewById(R.id.btn_Recherche);
         btRecherche.setOnClickListener(new View.OnClickListener() {
 
@@ -131,6 +167,19 @@ public class FragmentRecherche extends Fragment implements CompoundButton.OnChec
 
 
                 SharedPreferencesHelper.getInstance(getContext()).SauvegarderTypeLocalisationSelectionnee(tmp);
+
+
+                String tmpO = "";
+                if(rbGay.isChecked()){
+                    tmpO="Gay";
+                }
+
+                if(rbHetero.isChecked()){
+                    tmpO="Hetero";
+                }
+
+
+                SharedPreferencesHelper.getInstance(getContext()).SauvegarderOrientationSelectionnee(tmpO);
 
                 String prixSelectionnes = "";
                 if(cbPrixFaible.isChecked()){
@@ -152,14 +201,6 @@ public class FragmentRecherche extends Fragment implements CompoundButton.OnChec
 
                 SharedPreferencesHelper.getInstance(getContext()).SauvegarderPrixSelectionnes(prixSelectionnes);
 
-                //Remise à zéro des champs de recherche
-//                tvThemes.setText("");
-//                rgLocalisation.clearCheck();
-//                etVilleCP.setText("");
-//                cbPrixFaible.setChecked(false);
-//                cbPrixModere.setChecked(false);
-//                cbPrixEleve.setChecked(false);
-
                 ArrayList<Bar> bars = BarHelper.getInstance().Rechercher(getContext());
                 SharedPreferencesHelper.getInstance(getContext()).SauvegarderListeBars(bars);
 
@@ -175,27 +216,40 @@ public class FragmentRecherche extends Fragment implements CompoundButton.OnChec
     }
 
 
-    private void AfficherDialogChoixTheme() {
+    private void AfficherDialogChoixAmbiance() {
 
-        final ArrayList<String> seletedThemes = new ArrayList<>();
-        ArrayList<String> ListeThemes = new ArrayList<>();
-        for(int i = 0; i < Theme.values().length; i++){
-            ListeThemes.add(Theme.values()[i].name().replace("_"," "));
+        final ArrayList<String> seletedAmbiances = new ArrayList<>();
+        ArrayList<String> ListeAmbiances = new ArrayList<>();
+        for(int i = 0; i < Ambiance.values().length; i++){
+            ListeAmbiances.add(Ambiance.values()[i].name().replace("_"," "));
         }
 
-        final String[] themes = ListeThemes.toArray(new String[ListeThemes.size()]);
+        final String[] ambiances = ListeAmbiances.toArray(new String[ListeAmbiances.size()]);
+
+        boolean[] checkeditems = new boolean[ambiances.length];
+        Arrays.fill(checkeditems, Boolean.FALSE);
+        String ListeAmbiancesSelectionnees = SharedPreferencesHelper.getInstance(getContext()).RecupererAmbiancesSelectionnesString();
+
+         for(int i = 0; i < ambiances.length;i++){
+            if(ListeAmbiancesSelectionnees.contains(ambiances[i])){
+                checkeditems[i] = true;
+            }
+         }
+
+        boolean[] test = checkeditems;
+
 
         AlertDialog dialog = new AlertDialog.Builder(getContext())
-                .setTitle("Choix des thèmes")
-                .setMultiChoiceItems(themes, null, new DialogInterface.OnMultiChoiceClickListener() {
+                .setTitle("Choix des ambiances")
+                .setMultiChoiceItems(ambiances, checkeditems, new DialogInterface.OnMultiChoiceClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int indexSelected, boolean isChecked) {
                         if (isChecked) {
                             // If the user checked the item, add it to the selected items
-                            seletedThemes.add(themes[indexSelected]);
-                        } else if (seletedThemes.contains(themes[indexSelected])) {
+                            seletedAmbiances.add(ambiances[indexSelected]);
+                        } else if (seletedAmbiances.contains(ambiances[indexSelected])) {
                             // Else, if the item is already in the array, remove it
-                            seletedThemes.remove(themes[indexSelected]);
+                            seletedAmbiances.remove(ambiances[indexSelected]);
                         }
                     }
                 }).setPositiveButton("OK", new DialogInterface.OnClickListener() {
@@ -204,14 +258,179 @@ public class FragmentRecherche extends Fragment implements CompoundButton.OnChec
                         //  Your code when user clicked on OK
                         //  You can write the code  to save the selected item here
 
-                        String listeSelectedThemes = "";
+                        String listeSelectedAmbiances = "";
 
-                        for (Object s : seletedThemes)
+                        for (Object s : seletedAmbiances)
                         {
-                            listeSelectedThemes += s.toString() + "\n";
+                            listeSelectedAmbiances += s.toString() + "\n";
                         }
 
-                        SharedPreferencesHelper.getInstance(getContext()).SauvegarderThemesSelectionnes(listeSelectedThemes);
+                        if(listeSelectedAmbiances != ""){
+                            SharedPreferencesHelper.getInstance(getContext()).SauvegarderAmbiancesSelectionnes(listeSelectedAmbiances);
+                        }
+
+                        String tmp = "";
+                        if(rbGPS.isChecked()){
+                            tmp="GPS";
+                        }
+
+                        if(rbCP.isChecked()){
+                            tmp="CP"+etVilleCP.getText().toString();
+                        }
+
+
+                        SharedPreferencesHelper.getInstance(getContext()).SauvegarderTypeLocalisationSelectionnee(tmp);
+
+                        String tmpO = "";
+                        if(rbGay.isChecked()){
+                            tmpO="Gay";
+                        }
+
+                        if(rbHetero.isChecked()){
+                            tmpO="Hetero";
+                        }
+
+
+                        SharedPreferencesHelper.getInstance(getContext()).SauvegarderOrientationSelectionnee(tmpO);
+
+
+                        String prixSelectionnes = "";
+                        if(cbPrixFaible.isChecked()){
+                            prixSelectionnes = "PrixFaible,";
+                        }
+
+                        if(cbPrixModere.isChecked()){
+                            prixSelectionnes += "PrixModere,";
+                        }
+
+                        if(cbPrixEleve.isChecked()){
+                            prixSelectionnes += "PrixEleve";
+                        }
+
+                        if(prixSelectionnes.endsWith(","))
+                        {
+                            prixSelectionnes.substring(0,prixSelectionnes.length()-1);
+                        }
+
+                        SharedPreferencesHelper.getInstance(getContext()).SauvegarderPrixSelectionnes(prixSelectionnes);
+
+
+                        Fragment fragment = FragmentRecherche.newInstance(getContext());
+                        FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+                        fragmentTransaction.replace(R.id.content_frame, fragment);
+                        fragmentTransaction.commit();
+
+                    }
+                }).setNegativeButton("Annuler", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int id) {
+                        //  Your code when user clicked on Cancel
+                        dialog.dismiss();
+                    }
+                }).create();
+        dialog.show();
+
+    }
+
+    private void AfficherDialogChoixEnseigne() {
+
+        final ArrayList<String> seletedEnseignes = new ArrayList<>();
+        ArrayList<String> ListeEnseignes = new ArrayList<>();
+        for(int i = 0; i < Enseigne.values().length; i++){
+            ListeEnseignes.add(Enseigne.values()[i].name().replace("_"," "));
+        }
+
+        final String[] enseignes = ListeEnseignes.toArray(new String[ListeEnseignes.size()]);
+
+        boolean[] checkeditems = new boolean[enseignes.length];
+        Arrays.fill(checkeditems, Boolean.FALSE);
+        String ListeEnseignesSelectionnees = SharedPreferencesHelper.getInstance(getContext()).RecupererEnseignesSelectionnesString();
+
+        for(int i = 0; i < enseignes.length;i++){
+            if(ListeEnseignesSelectionnees.contains(enseignes[i])){
+                checkeditems[i] = true;
+            }
+        }
+
+        boolean[] test = checkeditems;
+
+
+        AlertDialog dialog = new AlertDialog.Builder(getContext())
+                .setTitle("Choix des enseignes")
+                .setMultiChoiceItems(enseignes, checkeditems, new DialogInterface.OnMultiChoiceClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int indexSelected, boolean isChecked) {
+                        if (isChecked) {
+                            // If the user checked the item, add it to the selected items
+                            seletedEnseignes.add(enseignes[indexSelected]);
+                        } else if (seletedEnseignes.contains(enseignes[indexSelected])) {
+                            // Else, if the item is already in the array, remove it
+                            seletedEnseignes.remove(enseignes[indexSelected]);
+                        }
+                    }
+                }).setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int id) {
+                        //  Your code when user clicked on OK
+                        //  You can write the code  to save the selected item here
+
+                        String listeSelectedEnseignes = "";
+
+                        for (Object s : seletedEnseignes)
+                        {
+                            listeSelectedEnseignes += s.toString() + "\n";
+                        }
+
+                        if(listeSelectedEnseignes != ""){
+                            SharedPreferencesHelper.getInstance(getContext()).SauvegarderEnseignesSelectionnes(listeSelectedEnseignes);
+                        }
+
+                        String tmp = "";
+                        if(rbGPS.isChecked()){
+                            tmp="GPS";
+                        }
+
+                        if(rbCP.isChecked()){
+                            tmp="CP"+etVilleCP.getText().toString();
+                        }
+
+
+                        SharedPreferencesHelper.getInstance(getContext()).SauvegarderTypeLocalisationSelectionnee(tmp);
+
+                        String tmpO = "";
+                        if(rbGay.isChecked()){
+                            tmpO="Gay";
+                        }
+
+                        if(rbHetero.isChecked()){
+                            tmpO="Hetero";
+                        }
+
+
+                        SharedPreferencesHelper.getInstance(getContext()).SauvegarderOrientationSelectionnee(tmpO);
+
+
+
+                        String prixSelectionnes = "";
+                        if(cbPrixFaible.isChecked()){
+                            prixSelectionnes = "PrixFaible,";
+                        }
+
+                        if(cbPrixModere.isChecked()){
+                            prixSelectionnes += "PrixModere,";
+                        }
+
+                        if(cbPrixEleve.isChecked()){
+                            prixSelectionnes += "PrixEleve";
+                        }
+
+                        if(prixSelectionnes.endsWith(","))
+                        {
+                            prixSelectionnes.substring(0,prixSelectionnes.length()-1);
+                        }
+
+                        SharedPreferencesHelper.getInstance(getContext()).SauvegarderPrixSelectionnes(prixSelectionnes);
+
 
                         Fragment fragment = FragmentRecherche.newInstance(getContext());
                         FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();

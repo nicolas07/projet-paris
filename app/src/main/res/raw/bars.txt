@@ -1,78 +1,78 @@
-Académie de la Bière,88Bis Boulevard de Port-Royal,75005,Paris,Bar à Biere,PrixFaible
-Brewberry,18 Rue du Pot de Fer,75005,Paris,Bar à Biere,PrixModere
-L'Express de Lyon,1 Rue de Lyon,75012,Paris,Bar à Biere,PrixFaible
-Le Falstaff,42 Rue du Montparnasse,75014,Paris,Bar à Biere,PrixModere
-Bar Demory Paris,62 Rue Quincampoix,75004,Paris,Bar à Biere,PrixFaible
-La Fine Mousse,4 bis Avenue Jean Aicard,75011,Paris,Bar à Biere,PrixModere
-Le Bouillon Belge,6 Rue Planchat,75020,Paris,Bar à Biere,PrixModere
-Les Trois 8,11 Rue Victor Letalle,75020,Paris,Bar à Biere,PrixFaible
-Troll Café,27 Rue de Cotte,75012,Paris,Bar à Biere,PrixEleve
-La Tireuse,18 Rue Laplace,75005,Paris,Bar à Biere,PrixFaible
-A Côté Bars à Vins,14 Rue de l'Amiral Mouchez,75014,Paris,Bar à Vins,PrixEleve
-Frenchie,5 Rue du Nil,75002,Paris,Bar à Vins,PrixModere
-L'Ebéniste du Vin,72 Rue Boursault,75017,Paris,Bar à Vins,PrixFaible
-O Chateau,68 Rue Jean-Jacques Rousseau,75001,Paris,Bar à Vins,PrixModere
-Bar Etna,33 Rue Mazarine,75006,Paris,Bar à Vins,PrixEleve
-Le Baron Rouge,62 Rue Notre Dame de Lorette,75009,Paris,Bar à Vins,PrixModere
-La Garde Robe,41 Rue de l'Arbre Sec,75001,Paris,Bar à Vins,PrixFaible
-INARO,38 Rue Ren? Boulanger,75010,Paris,Bar à Vins,PrixModere
-Chez Nous,10 Rue Dauphine,75006,Paris,Bar à Vins,PrixFaible
-Juveniles,47 Rue de Richelieu,75001,Paris,Bar à Vins,PrixModere
-L'Escale,32 Rue de Clignancourt,75018,Paris,Bar à Cocktails,PrixFaible
-Prescription Cocktail Club,23 Rue Mazarine,75006,Paris,Bar à Cocktails,PrixEleve
-Le Calbar,82 Rue de Charenton,75012,Paris,Bar à Cocktails,PrixFaible
-Experimental Cocktail Club,37 Rue Saint-Sauveur,75002,Paris,Bar à Cocktails,PrixModere
-Mabel,58 Rue d'Aboukir,75002,Paris,Bar à Cocktails,PrixModere,PrixEleve
-Lone Palm,21 Rue Keller,75011,Paris,Bar à Cocktails,PrixModere,PrixEleve
-Lockwood,73 Rue d'Aboukir,75002,Paris,Bar à Cocktails,PrixFaible
-Andy Wahloo,69 Rue des Gravilliers,75003,Paris,Bar à Cocktails,PrixEleve
-Harry's New york Bar, 5 Rue Daunou,75002,Paris,Bar à Cocktails,PrixFaible
-Castor Club,14 Rue Hautefeuille,75006,Paris,Bar à Cocktails,PrixModere
-PasDeloup,108 Rue Amelot, 75011,Paris,Bar à Cocktails,PrixModere,PrixEleve
-La Mise en Verre, 2 Avenue du Maine,75015,Paris,Bar sans Alcool,PrixFaible
-Le Mary Céleste,1 Rue Commines,75003,Paris,Bar sans Alcool,PrixEleve
-L'Oscar Café,29 Rue de Berri,75008,Paris,Bar sans Alcool,PrixModere
-Le Bar de la Maison Souquet,10 Rue de Bruxelles,75009,Paris,Bar sans Alcool,PrixEleve
-Le Téléphone,54 Rue Guy Môquet,75017,Paris,Bar sans Alcool,PrixModere
-Connolly's Corner,12 Rue de Mirbel,75005,Paris,Pub Irlandais,PrixFaible
-The Green Linnet,8 Avenue Victoria,75004,Paris,Pub Irlandais,PrixEleve
-Corcoran's Irish Pub,23 Boulevard Poissonnière,75002,Paris,Pub Irlandais,PrixEleve
-The Green Goose,19 Rue des Boulets,75011,Paris,Pub Irlandais,PrixFaible
-Patrick's le ballon vert,33 Rue de Montreuil,75011,Paris,Pub Irlandais,PrixModere
-McBrides Irish Pub,54 Rue St Denis,75001,Paris,Pub Irlandais,PrixEleve
-The Quiet Man ,5 Rue des Haudriettes,75003,Paris,Pub Irlandais,PrixModere
-Galway Irish Pub,13 Quai des Grands Augustins,75006,Paris,Pub Irlandais,PrixModere
-La Taverne,24 Boulevard des Italiens,75009,Paris,Pub Irlandais,PrixFaible
-La Taverne de Cluny,51 Rue de la Harpe,75005,Paris,Pub Irlandais,PrixEleve
-GuinessTavern,31bis Rue des Lombards,75001,Paris,Pub Irlandais,PrixModere
-Aux Sports,2 Rue des Morillons,75015,Paris,Bar Sportif,PrixFaible
-The Mosse,16 Rue des Quatre Vents,75006,Paris,Bar Sportif,PrixModere
-The Long Hop,25 Rue Fr?d?ric Sauton,75005,Paris,Bar Sportif,PrixFaible
-Little Temple Bar,12 Rue Princesse,75006,Paris,Bar Sportif,PrixModere
-The Lions,153 Rue du Chevaleret,75013,Paris,Bar Sportif,PrixEleve
-Bar Saint Sebastien,42 Rue Saint-Sébastien,75011,Paris,Bar Sportif,PrixEleve
-PlayOffWagram,58 Avenue de Wagram,75017,Paris,Bar Sportif,PrixFaible
-French Flair,75 Bis Boulevard de Clichy,75009,Paris,Bar Sportif,PrixEleve
-Le Kanon,9 Rue du Général Lanrezac,75017,Paris,Bar Sportif,PrixFaible
-Café Oz,18 Rue St Denis,75001,Paris,Bar Sportif,PrixEleve
-The Harp Bar,118 Boulevard de Clichy,75018,Paris,Bar Sportif,PrixModere
-Eden Park Pub,10 Rue Princesse,75006,Paris,Bar Sportif,PrixEleve
-Le Pop Up du Label,14 Rue Abel,75012,Paris,Bar à Musique,PrixFaible
-Le Zéro Zéro,89 Rue Amelot,75011,Paris,Bar à Musique,PrixFaible
-l'international ,7 Rue Moret,75011,Paris,Bar à Musique,PrixFaible
-le 9B,68 Boulevard de la Villette,75019,Paris,Bar à Musique,PrixFaible
-Le Mellotron,6 Rue Beaurepaire,75010,Paris,Bar à Musique,PrixModere
-Le Trac,72 Avenue de France,75013,Paris,Bar à Musique,PrixModere
-le Motel,8 Passage Josset,75011,Paris,Bar à Musique,PrixEleve
-Le Mécanique Ondulatoire,8 Passage Thiéré,75011,Paris,Bar à Musique,PrixEleve
-Pili Pili,70 Rue Jean-Pierre Timbaud,75011,Paris,Bar Latinos,PrixFaible
-L'Antidote,45 Rue Descartes,75005,Paris,Bar Latinos,PrixFaible
-Le Salsero Bar,9 Rue du Petit Pont,75005,Paris,Bar Latinos,PrixFaible
-El Urbano,3 Rue Crespin du Gast,75011,Paris,Bar Latinos,PrixFaible
-Crocodile Vert,6 Rue du Hameau,75015,Paris,Bar Latinos,PrixModere
-Bloody Mary,41 Rue Amelot,75011,Paris,Bar Latinos,PrixFaible
-Barrio Latino,48 Rue du Faubourg Saint-Antoine,75012,Paris,Bar Latinos,PrixEleve
-Havanita,11 Rue de Lappe,75011,Paris,Bar Latinos,PrixFaible
-Cuba Compagnie,48 Boulevard Beaumarchais,75011,Paris,Bar Latinos,PrixModere
-Favelo Chic,18 Rue du Faubourg du Temple,75011,Paris,Bar Latinos,PrixFaible
-Le Pena de Saint Germain,3 Passage de la Petite Boucherie,75006,Paris,Bar Latinos,PrixEleve
+Académie de la Bière,88Bis Boulevard de Port-Royal,75005,Paris,Bar à Biere,PrixFaible,Bar
+Brewberry,18 Rue du Pot de Fer,75005,Paris,Bar à Biere,PrixModere,Bar
+L'Express de Lyon,1 Rue de Lyon,75012,Paris,Bar à Biere,PrixFaible,Bar
+Le Falstaff,42 Rue du Montparnasse,75014,Paris,Bar à Biere,PrixModere,Bar
+Bar Demory Paris,62 Rue Quincampoix,75004,Paris,Bar à Biere,PrixFaible,Bar
+La Fine Mousse,4 bis Avenue Jean Aicard,75011,Paris,Bar à Biere,PrixModere,Restaurant
+Le Bouillon Belge,6 Rue Planchat,75020,Paris,Bar à Biere,PrixModere,Bar
+Les Trois 8,11 Rue Victor Letalle,75020,Paris,Bar à Biere,PrixFaible,Restaurant
+Troll Café,27 Rue de Cotte,75012,Paris,Bar à Biere,PrixEleve,Restaurant
+La Tireuse,18 Rue Laplace,75005,Paris,Bar à Biere,PrixFaible,Bar
+A Côté Bars à Vins,14 Rue de l'Amiral Mouchez,75014,Paris,Bar à Vins,PrixEleve,Restaurant
+Frenchie,5 Rue du Nil,75002,Paris,Bar à Vins,PrixModere,Bar,Restaurant
+L'Ebéniste du Vin,72 Rue Boursault,75017,Paris,Bar à Vins,PrixFaible,Restaurant
+O Chateau,68 Rue Jean-Jacques Rousseau,75001,Paris,Bar à Vins,PrixModere,Bar
+Bar Etna,33 Rue Mazarine,75006,Paris,Bar à Vins,PrixEleve,Restaurant
+Le Baron Rouge,62 Rue Notre Dame de Lorette,75009,Paris,Bar à Vins,PrixModere,Bar
+La Garde Robe,41 Rue de l'Arbre Sec,75001,Paris,Bar à Vins,PrixFaible,Restaurant
+INARO,38 Rue Ren? Boulanger,75010,Paris,Bar à Vins,PrixModere,Bar
+Chez Nous,10 Rue Dauphine,75006,Paris,Bar à Vins,PrixFaible,Restaurant
+Juveniles,47 Rue de Richelieu,75001,Paris,Bar à Vins,PrixModere,Restaurant
+L'Escale,32 Rue de Clignancourt,75018,Paris,Bar à Cocktails,PrixFaible,Restaurant
+Prescription Cocktail Club,23 Rue Mazarine,75006,Paris,Bar à Cocktails,PrixEleve,Bar
+Le Calbar,82 Rue de Charenton,75012,Paris,Bar à Cocktails,PrixFaible,Bar
+Experimental Cocktail Club,37 Rue Saint-Sauveur,75002,Paris,Bar à Cocktails,PrixModere,Bar
+Mabel,58 Rue d'Aboukir,75002,Paris,Bar à Cocktails,PrixModere,Chicha
+Lone Palm,21 Rue Keller,75011,Paris,Bar à Cocktails,PrixModere,PrixEleve,Bar
+Lockwood,73 Rue d'Aboukir,75002,Paris,Bar à Cocktails,PrixFaible,Chicha,Restaurant
+Andy Wahloo,69 Rue des Gravilliers,75003,Paris,Bar à Cocktails,PrixEleve,Bar
+Harry's New york Bar, 5 Rue Daunou,75002,Paris,Bar à Cocktails,PrixFaible,Bar
+Castor Club,14 Rue Hautefeuille,75006,Paris,Bar à Cocktails,PrixModere,Restaurant
+PasDeloup,108 Rue Amelot, 75011,Paris,Bar à Cocktails,PrixModere,PrixEleve,Bar
+La Mise en Verre, 2 Avenue du Maine,75015,Paris,Bar sans Alcool,PrixFaible,Restaurant
+Le Mary Céleste,1 Rue Commines,75003,Paris,Bar sans Alcool,PrixEleve,Restaurant
+L'Oscar Café,29 Rue de Berri,75008,Paris,Bar sans Alcool,PrixModere,Bar
+Le Bar de la Maison Souquet,10 Rue de Bruxelles,75009,Paris,Bar sans Alcool,PrixEleve,Bar
+Le Téléphone,54 Rue Guy Môquet,75017,Paris,Bar sans Alcool,PrixModere,Bar
+Connolly's Corner,12 Rue de Mirbel,75005,Paris,Pub Irlandais,PrixFaible,Restaurant
+The Green Linnet,8 Avenue Victoria,75004,Paris,Pub Irlandais,PrixEleve,Restaurant
+Corcoran's Irish Pub,23 Boulevard Poissonnière,75002,Paris,Pub Irlandais,PrixEleve,Bar
+The Green Goose,19 Rue des Boulets,75011,Paris,Pub Irlandais,PrixFaible,Bar
+Patrick's le ballon vert,33 Rue de Montreuil,75011,Paris,Pub Irlandais,PrixModere,Bar
+McBrides Irish Pub,54 Rue St Denis,75001,Paris,Pub Irlandais,PrixEleve,Bar
+The Quiet Man ,5 Rue des Haudriettes,75003,Paris,Pub Irlandais,PrixModere,Bar
+Galway Irish Pub,13 Quai des Grands Augustins,75006,Paris,Pub Irlandais,PrixModere,Bar
+La Taverne,24 Boulevard des Italiens,75009,Paris,Pub Irlandais,PrixFaible,Bar
+La Taverne de Cluny,51 Rue de la Harpe,75005,Paris,Pub Irlandais,PrixEleve,Bar
+GuinessTavern,31bis Rue des Lombards,75001,Paris,Pub Irlandais,PrixModere,Bar
+Aux Sports,2 Rue des Morillons,75015,Paris,Bar Sportif,PrixFaible,Bar
+The Mosse,16 Rue des Quatre Vents,75006,Paris,Bar Sportif,PrixModere,Bar
+The Long Hop,25 Rue Fr?d?ric Sauton,75005,Paris,Bar Sportif,PrixFaible,Bar
+Little Temple Bar,12 Rue Princesse,75006,Paris,Bar Sportif,PrixModere,Chicha
+The Lions,153 Rue du Chevaleret,75013,Paris,Bar Sportif,PrixEleve,Chicha
+Bar Saint Sebastien,42 Rue Saint-Sébastien,75011,Paris,Bar Sportif,PrixEleve,Bar
+PlayOffWagram,58 Avenue de Wagram,75017,Paris,Bar Sportif,PrixFaible,Bar
+French Flair,75 Bis Boulevard de Clichy,75009,Paris,Bar Sportif,PrixEleve,Bar
+Le Kanon,9 Rue du Général Lanrezac,75017,Paris,Bar Sportif,PrixFaible,Bar
+Café Oz,18 Rue St Denis,75001,Paris,Bar Sportif,PrixEleve,Bar
+The Harp Bar,118 Boulevard de Clichy,75018,Paris,Bar Sportif,PrixModere,Bar
+Eden Park Pub,10 Rue Princesse,75006,Paris,Bar Sportif,PrixEleve,Bar
+Le Pop Up du Label,14 Rue Abel,75012,Paris,Bar à Musique,PrixFaible,Bar
+Le Zéro Zéro,89 Rue Amelot,75011,Paris,Bar à Musique,PrixFaible,Bar
+l'international ,7 Rue Moret,75011,Paris,Bar à Musique,PrixFaible,Bar
+le 9B,68 Boulevard de la Villette,75019,Paris,Bar à Musique,PrixFaible,Bar
+Le Mellotron,6 Rue Beaurepaire,75010,Paris,Bar à Musique,PrixModere,Bar
+Le Trac,72 Avenue de France,75013,Paris,Bar à Musique,PrixModere,Bar
+le Motel,8 Passage Josset,75011,Paris,Bar à Musique,PrixEleve,Bar
+Le Mécanique Ondulatoire,8 Passage Thiéré,75011,Paris,Bar à Musique,PrixEleve,Bar
+Pili Pili,70 Rue Jean-Pierre Timbaud,75011,Paris,Bar Latinos,PrixFaible,Bar
+L'Antidote,45 Rue Descartes,75005,Paris,Bar Latinos,PrixFaible,Bar
+Le Salsero Bar,9 Rue du Petit Pont,75005,Paris,Bar Latinos,PrixFaible,Bar
+El Urbano,3 Rue Crespin du Gast,75011,Paris,Bar Latinos,PrixFaible,Bar
+Crocodile Vert,6 Rue du Hameau,75015,Paris,Bar Latinos,PrixModere,Bar
+Bloody Mary,41 Rue Amelot,75011,Paris,Bar Latinos,PrixFaible,Bar
+Barrio Latino,48 Rue du Faubourg Saint-Antoine,75012,Paris,Bar Latinos,PrixEleve,Bar
+Havanita,11 Rue de Lappe,75011,Paris,Bar Latinos,PrixFaible,Bar
+Cuba Compagnie,48 Boulevard Beaumarchais,75011,Paris,Bar Latinos,PrixModere,Bar
+Favelo Chic,18 Rue du Faubourg du Temple,75011,Paris,Bar Latinos,PrixFaible,Bar
+Le Pena de Saint Germain,3 Passage de la Petite Boucherie,75006,Paris,Bar Latinos,PrixEleve,Bar

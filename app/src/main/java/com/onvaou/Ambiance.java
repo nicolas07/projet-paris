@@ -3,7 +3,7 @@ package com.onvaou;
 /**
  * Created by Nicolas on 29/10/2017.
  */
-public enum Theme {
+public enum Ambiance {
     Bar_à_Vins,
     Bar_à_Biere,
     Bar_à_Cocktails,

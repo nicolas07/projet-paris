@@ -51,7 +51,7 @@ public class BarAdapter extends ArrayAdapter<Bar> {
         holder.nom.setText(bar.getNom());
 
         int idImage = 0;
-        switch (bar.getTheme()){
+        switch (bar.getAmbiance()){
             case Bar_à_Vins :
                 idImage = R.mipmap.baravins;
                 break;

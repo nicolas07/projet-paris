@@ -6,7 +6,7 @@ package com.onvaou;
 public class Bar {
 
     public String Nom;
-    public Theme Theme;
+    public Ambiance Ambiance;
     public Prix Prix;
     public String Adresse;
     public String Ville;
@@ -16,6 +16,26 @@ public class Bar {
     public float Note;
     public boolean Favori;
 
+    public String getOrientation() {
+        return Orientation;
+    }
+
+    public void setOrientation(String orientation) {
+        Orientation = orientation;
+    }
+
+    public String Orientation;
+
+    public com.onvaou.Enseigne getEnseigne() {
+        return Enseigne;
+    }
+
+    public void setEnseigne(com.onvaou.Enseigne enseigne) {
+        Enseigne = enseigne;
+    }
+
+    public Enseigne Enseigne;
+
     public String getNom() {
         return Nom;
     }
@@ -24,12 +44,12 @@ public class Bar {
         Nom = nom;
     }
 
-    public com.onvaou.Theme getTheme() {
-        return Theme;
+    public com.onvaou.Ambiance getAmbiance() {
+        return Ambiance;
     }
 
-    public void setTheme(com.onvaou.Theme theme) {
-        Theme = theme;
+    public void setAmbiance(com.onvaou.Ambiance ambiance) {
+        Ambiance = ambiance;
     }
 
     public com.onvaou.Prix getPrix() {
@@ -96,9 +116,9 @@ public class Bar {
         Favori = favori;
     }
 
-    public Bar(String nom, com.onvaou.Theme theme, com.onvaou.Prix prix, String adresse, String ville, String CP, double latitude, double longitude, float note) {
+    public Bar(String nom, com.onvaou.Ambiance ambiance, com.onvaou.Prix prix, String adresse, String ville, String CP, double latitude, double longitude, float note,Enseigne enseigne,String orientation) {
         Nom = nom;
-        Theme = theme;
+        Ambiance = ambiance;
         Prix = prix;
         Adresse = adresse;
         Ville = ville;
@@ -107,6 +127,8 @@ public class Bar {
         Longitude = longitude;
         Note = note;
         Favori = false;
+        Enseigne = enseigne;
+        Orientation = orientation;
     }
 
 

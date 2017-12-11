@@ -29,20 +29,20 @@ public class BarHelper {
         return instance;
     }
 
-    public ArrayList<Bar> GenererListeBars(){
-        ArrayList<Bar> b = new ArrayList<Bar>();
-
-        Random r = new Random();
-        for(int i = 0; i < 20;i++)
-        {
-
-            float i1 = r.nextFloat()*(5 - 1) + 1;
-            b.add(new Bar("Bar" + i,Theme.Bar_à_Biere, Prix.Eleve,"2 Rue Victor Hugo","PARIS","75016",48.894825,2.382356,i1));
-
-        }
-
-        return b;
-    }
+//    public ArrayList<Bar> GenererListeBars(){
+//        ArrayList<Bar> b = new ArrayList<Bar>();
+//
+//        Random r = new Random();
+//        for(int i = 0; i < 20;i++)
+//        {
+//
+//            float i1 = r.nextFloat()*(5 - 1) + 1;
+//            b.add(new Bar("Bar" + i,Ambiance.Bar_à_Biere, Prix.Eleve,"2 Rue Victor Hugo","PARIS","75016",48.894825,2.382356,i1));
+//
+//        }
+//
+//        return b;
+//    }
 
     public ArrayList<Bar> RecupererListeBarsFavoris(Context ctx){
 
@@ -78,17 +78,19 @@ public class BarHelper {
 
         ArrayList<Bar> barsRecherche = new ArrayList<Bar>();
         ArrayList<Bar> bars = LireFichierBars(ctx);
-        ArrayList<Theme> themes = SharedPreferencesHelper.getInstance(ctx).RecupererThemesSelectionnes();
+        ArrayList<Ambiance> ambiances = SharedPreferencesHelper.getInstance(ctx).RecupererAmbiancesSelectionnes();
         ArrayList<Prix> prix = SharedPreferencesHelper.getInstance(ctx).RecupererPrixSelectionnes();
         String localisation = SharedPreferencesHelper.getInstance(ctx).RecupererTypeLocalisationSelectionnee();
+        ArrayList<Enseigne> enseignes = SharedPreferencesHelper.getInstance(ctx).RecupererEnseignesSelectionnes();
+        String orientation = SharedPreferencesHelper.getInstance(ctx).RecupererOrientationSelectionnee();
 
         for (Bar b : bars) {
-            if(localisation.equals("GPS")){
-                if(themes.contains(b.getTheme()) && prix.contains(b.getPrix())){
+            if(localisation.equals("GPS") && b.getCP().contains("75016")){
+                if(ambiances.contains(b.getAmbiance()) && prix.contains(b.getPrix()) && enseignes.contains(b.getEnseigne()) && orientation.contains(b.getOrientation())){
                     barsRecherche.add(b);
                 }
             } else if(localisation.substring(0,2).equals("CP")) {
-                if(themes.contains(b.getTheme()) && prix.contains(b.getPrix()) && localisation.contains(b.getCP())){
+                if(ambiances.contains(b.getAmbiance()) && prix.contains(b.getPrix()) && localisation.contains(b.getCP()) && enseignes.contains(b.getEnseigne()) && orientation.contains(b.getOrientation())){
                     barsRecherche.add(b);
                 }
             }
@@ -98,8 +100,8 @@ public class BarHelper {
         return barsRecherche;
     }
 
-//        //Pour chaque theme selectionne
-//        for (Theme t : themes) {
+//        //Pour chaque ambiance selectionne
+//        for (Ambiance t : ambiances) {
 //            Random r = new Random();
 //            for(int i = 0; i < r.nextInt(10-1) + 1;i++)
 //            {
@@ -114,34 +116,34 @@ public class BarHelper {
 //        }
 
 
-    public ArrayList<Bar> GenererListeBarsRandom() {
-        ArrayList<Bar> bars = new ArrayList<Bar>();
-        Random r = new Random();
-        int nbBars = r.nextInt(15-5) + 5;
-
-        for (Theme t: Theme.values()) {
-
-            Random r2 = new Random();
-            int prix = r2.nextInt(3-1) + 1;
-            for(int i = 0; i < nbBars;i++){
-                Bar b = null;
-                switch (prix){
-                    case 1 :
-                        b = new Bar(t.name()+" "+ i,t, Prix.Faible,"2 Rue Victor Hugo","PARIS","75016",48.894825,2.382356,r2.nextFloat()*(5 - 1) + 1);
-                        break;
-                    case 2 :
-                        b = new Bar(t.name()+" "+ i,t, Prix.Modere,"2 Rue Victor Hugo","PARIS","75016",48.894825,2.382356,r2.nextFloat()*(5 - 1) + 1);
-                        break;
-                    case 3 :
-                        b = new Bar(t.name()+" "+ i,t, Prix.Eleve,"2 Rue Victor Hugo","PARIS","75016",48.894825,2.382356,r2.nextFloat()*(5 - 1) + 1);
-                        break;
-                }
-
-                bars.add(b);
-            }
-        }
-        return bars;
-    }
+//    public ArrayList<Bar> GenererListeBarsRandom() {
+//        ArrayList<Bar> bars = new ArrayList<Bar>();
+//        Random r = new Random();
+//        int nbBars = r.nextInt(15-5) + 5;
+//
+//        for (Ambiance t: Ambiance.values()) {
+//
+//            Random r2 = new Random();
+//            int prix = r2.nextInt(3-1) + 1;
+//            for(int i = 0; i < nbBars;i++){
+//                Bar b = null;
+//                switch (prix){
+//                    case 1 :
+//                        b = new Bar(t.name()+" "+ i,t, Prix.Faible,"2 Rue Victor Hugo","PARIS","75016",48.894825,2.382356,r2.nextFloat()*(5 - 1) + 1);
+//                        break;
+//                    case 2 :
+//                        b = new Bar(t.name()+" "+ i,t, Prix.Modere,"2 Rue Victor Hugo","PARIS","75016",48.894825,2.382356,r2.nextFloat()*(5 - 1) + 1);
+//                        break;
+//                    case 3 :
+//                        b = new Bar(t.name()+" "+ i,t, Prix.Eleve,"2 Rue Victor Hugo","PARIS","75016",48.894825,2.382356,r2.nextFloat()*(5 - 1) + 1);
+//                        break;
+//                }
+//
+//                bars.add(b);
+//            }
+//        }
+//        return bars;
+//    }
 
     public ArrayList<Bar> LireFichierBars(Context ctx){
 
@@ -154,22 +156,30 @@ public class BarHelper {
 
         try {
             Random r = new Random();
+            int icpt = 0;
             while (( line = buffreader.readLine()) != null) {
                 String[] splitLine = line.split(",");
 
-                float note = r.nextFloat()*(5 - 3) + 3;
+                float note = r.nextFloat()*(5 - 2) + 2;
+                String orientation = "Hetero";
+
+                if(icpt > 60){
+                    orientation = "Gay";
+                }
+
                 bars.add(new Bar(splitLine[0],
-                        new ThemeHelper().ConvertirStringVersTheme(splitLine[4]),
+                        new AmbianceHelper().ConvertirStringVersAmbiance(splitLine[4]),
                         new PrixHelper().ConvertirStringVersPrix(splitLine[5]),
                         splitLine[1],
                         splitLine[3],
                         splitLine[2],
                         48.894825,
                         2.382356,
-                        note));
+                        note,
+                        new EnseigneHelper().ConvertirStringVersEnseigne(splitLine[6]),orientation));
+                icpt++;
             }
-        } catch (IOException e) {
-
+        } catch (Exception e) {
         }
         return bars;
     }

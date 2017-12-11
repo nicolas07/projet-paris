@@ -49,6 +49,6 @@
     android:layout_marginBottom="24dp"
     android:padding="12dp"
     android:text="Login"
-    android:background="#ff6666"/>
+    android:background="@color/colorAccent"/>
 
 </LinearLayout>

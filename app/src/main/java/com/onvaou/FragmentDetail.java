@@ -44,9 +44,11 @@ public class FragmentDetail extends Fragment {
 
         TextView tvNom = (TextView) view.findViewById(R.id.tvNom);
         TextView tvNote = (TextView) view.findViewById(R.id.tvNote);
-        TextView tvTheme = (TextView) view.findViewById(R.id.tvTheme);
+        TextView tvAmbiance = (TextView) view.findViewById(R.id.tvAmbiance);
+        TextView tvEnseigne = (TextView) view.findViewById(R.id.tvEnseigne);
 //        TextView tvPrix = (TextView) view.findViewById(R.id.tvPrix);
         TextView tvAdresse = (TextView) view.findViewById(R.id.tvAdresse);
+        TextView tvOrientation = (TextView) view.findViewById(R.id.tvOrientation);
 
         ImageView euro1 = (ImageView) view.findViewById(R.id.euro1);
         ImageView euro2 = (ImageView) view.findViewById(R.id.euro2);
@@ -58,10 +60,14 @@ public class FragmentDetail extends Fragment {
         Random r = new Random();
         DecimalFormat df = new DecimalFormat("#.00");
         tvNom.setText(b.getNom());
+        tvEnseigne.setText(b.getEnseigne().name().replace("_"," "));
         int nbAvis = r.nextInt(50-15)+15;
         tvNote.setText(" ("+ nbAvis+" avis)");
-        tvTheme.setText(b.getTheme().name().replace("_"," "));
+        tvOrientation.setText(b.getOrientation());
+        tvAmbiance.setText(b.getAmbiance().name().replace("_"," "));
         final RatingBar rbNote = (RatingBar) view.findViewById(R.id.rbNote);
+
+        float t = b.getNote();
         rbNote.setRating(b.getNote());
 //        tvPrix.setText(b.getPrix().name());
         tvAdresse.setText(b.getAdresse() + "\n" + b.getCP() +" - "+b.getVille());
@@ -187,7 +193,7 @@ public class FragmentDetail extends Fragment {
     private void AfficherDialogNote() {
 
         AlertDialog dialog = new AlertDialog.Builder(getContext())
-                .setTitle("Choix des thèmes")
+                .setTitle("Note")
                 .setView(R.layout.note_layout)
                 .setPositiveButton("OK", new DialogInterface.OnClickListener() {
                     @Override
